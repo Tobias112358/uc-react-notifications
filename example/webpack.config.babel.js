@@ -47,11 +47,11 @@ export default {
       },
       {
         test: /\.(png|jpg|gif|swf)$/,
-        use: 'file-loader'
+        type: 'asset/resource'
       },
       {
         test: /\.(ttf|eot|svg|woff(2)?)(\S+)?$/,
-        use: 'file-loader'
+        type: 'asset/resource'
       }
     ]
   },
