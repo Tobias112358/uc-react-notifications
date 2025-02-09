@@ -1,12 +1,12 @@
-@import 'variables';
+@use 'variables';
 
 @font-face {
   font-family: 'Notification';
-  src: url('#{$react-notifications-font-base-path}/notification.eot?s3g3t9');
-  src: url('#{$react-notifications-font-base-path}/notification.eot?#iefixs3g3t9') format('embedded-opentype'),
-  url('#{$react-notifications-font-base-path}/notification.woff?s3g3t9') format('woff'),
-  url('#{$react-notifications-font-base-path}/notification.ttf?s3g3t9') format('truetype'),
-  url('#{$react-notifications-font-base-path}/notification.svg?s3g3t9#notification') format('svg');
+  src: url('#{variables.$react-notifications-font-base-path}/notification.eot?s3g3t9');
+  src: url('#{variables.$react-notifications-font-base-path}/notification.eot?#iefixs3g3t9') format('embedded-opentype'),
+  url('#{variables.$react-notifications-font-base-path}/notification.woff?s3g3t9') format('woff'),
+  url('#{variables.$react-notifications-font-base-path}/notification.ttf?s3g3t9') format('truetype'),
+  url('#{variables.$react-notifications-font-base-path}/notification.svg?s3g3t9#notification') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -14,37 +14,37 @@
 .notification-container {
   box-sizing: border-box;
   position: fixed;
-  top: $react-notifications-container-top;
-  right: $react-notifications-container-right;
-  z-index: $react-notifications-container-z-index;
-  width: $react-notifications-container-width;
-  padding: $react-notifications-container-top-padding $react-notifications-container-right-padding;
-  max-height: $react-notifications-container-max-height;
+  top: variables.$react-notifications-container-top;
+  right: variables.$react-notifications-container-right;
+  z-index: variables.$react-notifications-container-z-index;
+  width: variables.$react-notifications-container-width;
+  padding: variables.$react-notifications-container-top-padding variables.$react-notifications-container-right-padding;
+  max-height: variables.$react-notifications-container-max-height;
   overflow-x: hidden;
   overflow-y: auto;
 }
 
 .notification {
   box-sizing: border-box;
-  padding: $react-notifications-padding-top $react-notifications-padding-right $react-notifications-padding-bottom $react-notifications-padding-left;
-  border-radius: $react-notifications-border-radius;
-  color: $react-notifications-color;
-  background-color: $react-notifications-background-color;
-  box-shadow: $react-notifications-box-shadow;
-  cursor: $react-notifications-cursor;
-  font-size: $react-notifications-font-size;
-  line-height: $react-notifications-line-height;
+  padding: variables.$react-notifications-padding-top variables.$react-notifications-padding-right variables.$react-notifications-padding-bottom variables.$react-notifications-padding-left;
+  border-radius: variables.$react-notifications-border-radius;
+  color: variables.$react-notifications-color;
+  background-color: variables.$react-notifications-background-color;
+  box-shadow: variables.$react-notifications-box-shadow;
+  cursor: variables.$react-notifications-cursor;
+  font-size: variables.$react-notifications-font-size;
+  line-height: variables.$react-notifications-line-height;
   position: relative;
-  opacity: $react-notifications-opacity;
-  margin-top: $react-notifications-margin-top;
+  opacity: variables.$react-notifications-opacity;
+  margin-top: variables.$react-notifications-margin-top;
   .title {
-    font-size: $react-notifications-title-font-size;
-    line-height: $react-notifications-title-line-height;
-    font-weight: $react-notifications-title-font-weight;
-    margin: $react-notifications-title-margin;
+    font-size: variables.$react-notifications-title-font-size;
+    line-height: variables.$react-notifications-title-line-height;
+    font-weight: variables.$react-notifications-title-font-weight;
+    margin: variables.$react-notifications-title-margin;
   }
   &:hover, &:focus {
-    opacity: $react-notifications-hover-opacity;
+    opacity: variables.$react-notifications-hover-opacity;
   }
 }
 
@@ -56,7 +56,7 @@
 .notification-enter.notification-enter-active {
   visibility: visible;
   transform: translate3d(0, 0, 0);
-  transition: all $react-notifications-transition-time;
+  transition: all variables.$react-notifications-transition-time;
 }
 
 .notification-exit {
@@ -67,49 +67,49 @@
 .notification-exit.notification-exit-active {
   visibility: hidden;
   transform: translate3d(100%, 0, 0);
-  transition: all $react-notifications-transition-time;
+  transition: all variables.$react-notifications-transition-time;
 }
 
 .notification {
   &:before {
     position: absolute;
-    top: $react-notifications-icon-top;
-    left: $react-notifications-icon-left;
-    margin-top: $react-notifications-icon-margin-top;
+    top: variables.$react-notifications-icon-top;
+    left: variables.$react-notifications-icon-left;
+    margin-top: variables.$react-notifications-icon-margin-top;
     display: block;
     font-family: 'Notification';
-    width: $react-notifications-icon-width;
-    height: $react-notifications-icon-height;
-    font-size: $react-notifications-icon-font-size;
+    width: variables.$react-notifications-icon-width;
+    height: variables.$react-notifications-icon-height;
+    font-size: variables.$react-notifications-icon-font-size;
     text-align: center;
-    line-height: $react-notifications-icon-line-height;
+    line-height: variables.$react-notifications-icon-line-height;
   }
 }
 
 .notification-info {
-  background-color: $react-notifications-info-background-color;
+  background-color: variables.$react-notifications-info-background-color;
   &:before {
-    content: $react-notifications-info-content;
+    content: variables.$react-notifications-info-content;
   }
 }
 
 .notification-success {
-  background-color: $react-notifications-success-background-color;
+  background-color: variables.$react-notifications-success-background-color;
   &:before {
-    content: $react-notifications-success-content;
+    content: variables.$react-notifications-success-content;
   }
 }
 
 .notification-warning {
-  background-color: $react-notifications-warning-background-color;
+  background-color: variables.$react-notifications-warning-background-color;
   &:before {
-    content: $react-notifications-warning-content;
+    content: variables.$react-notifications-warning-content;
   }
 }
 
 .notification-error {
-  background-color: $react-notifications-error-background-color;
+  background-color: variables.$react-notifications-error-background-color;
   &:before {
-    content: $react-notifications-error-content;
+    content: variables.$react-notifications-error-content;
   }
 }

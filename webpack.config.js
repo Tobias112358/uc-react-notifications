@@ -1,9 +1,8 @@
 import webpack from 'webpack';
 import path from 'path';
-import camelCase from 'camelcase';
-//import pkg from './package.json';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 
 const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
@@ -16,7 +15,6 @@ const webpackConfig = {
   },
   output: {
     filename: `${"uc-react-notifications"}.js`,
-    path: path.resolve(dirname(fileURLToPath(import.meta.url)), 'dist'),
     library: {
       type: 'module',
     },
@@ -39,14 +37,9 @@ const webpackConfig = {
       {
         test: /\.scss$/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
+          'sass-loader',
         ],
       },
 
@@ -61,7 +54,8 @@ const webpackConfig = {
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       }
-    })
+    }),
+    new MiniCssExtractPlugin(),
   ],
   devServer: {
     static: {

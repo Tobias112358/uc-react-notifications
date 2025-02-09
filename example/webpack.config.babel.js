@@ -39,17 +39,11 @@ export default {
       },
       {
         test: /\.scss$/,
-        use: [{
-          loader: 'css-loader',
-          options: {
-            sourceMap: true
-          }
-        }, {
-          loader: 'sass-loader',
-          options: {
-            sourceMap: true
-          }
-        }]
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ]
       },
       {
         test: /\.(png|jpg|gif|swf)$/,
