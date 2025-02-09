@@ -7,6 +7,8 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
+const packageName = 'react-notifications';
+
 const webpackConfig = {
   mode: 'production',
   entry: "./src/index.js",
@@ -14,7 +16,7 @@ const webpackConfig = {
     minimize: false
   },
   output: {
-    filename: `${"uc-react-notifications"}.js`,
+    filename: `${packageName}.js`,
     library: {
       type: 'module',
     },
@@ -55,7 +57,9 @@ const webpackConfig = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       }
     }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: `${packageName}.css`,
+    }),
   ],
   devServer: {
     static: {
