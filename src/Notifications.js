@@ -47,6 +47,7 @@ class Notifications extends React.Component {
             title={notification.title}
             message={notification.message}
             timeOut={notification.timeOut}
+            nodeRef={notification.nodeRef}
             onClick={notification.onClick}
             onRequestHide={this.handleRequestHide(notification)}
             nodeRef={notification.nodeRef}

@@ -8,6 +8,7 @@ class Notification extends React.Component {
     title: PropTypes.node,
     message: PropTypes.node,
     timeOut: PropTypes.number,
+    nodeRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
     onClick: PropTypes.func,
     onRequestHide: PropTypes.func,
     nodeRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) })
@@ -18,6 +19,7 @@ class Notification extends React.Component {
     title: null,
     message: null,
     timeOut: 5000,
+    nodeRef: null,
     onClick: () => {
     },
     onRequestHide: () => {

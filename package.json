@@ -1,6 +1,6 @@
 {
   "name": "react-notifications",
-  "version": "1.7.4",
+  "version": "1.7.5-beta.0",
   "description": "Notification component for ReactJS",
   "main": "src/index.js",
   "type": "module",
