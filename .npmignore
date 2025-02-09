@@ -7,3 +7,5 @@ src
 webpack.config.js
 screenshot.png
 postcss.config.js
+README.md
+.*
