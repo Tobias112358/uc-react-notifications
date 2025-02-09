@@ -2,7 +2,7 @@
   "name": "react-notifications",
   "version": "1.7.5-beta.0",
   "description": "Notification component for ReactJS",
-  "module": "dist/",
+  "module": "dist/react-notifications.js",
   "type": "module",
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --config ./example/webpack.config.babel.js",
