@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import classnames from 'classnames';
-import Notification from './Notification';
+import Notification from './Notification.js';
 
 class Notifications extends React.Component {
   static propTypes = {
@@ -40,6 +40,7 @@ class Notifications extends React.Component {
           key={key}
           classNames="notification"
           timeout={{ enter: enterTimeout, exit: leaveTimeout }}
+          nodeRef={notification.nodeRef}
         >
           <Notification
             type={notification.type}
@@ -48,6 +49,7 @@ class Notifications extends React.Component {
             timeOut={notification.timeOut}
             onClick={notification.onClick}
             onRequestHide={this.handleRequestHide(notification)}
+            nodeRef={notification.nodeRef}
           />
         </CSSTransition>
       );

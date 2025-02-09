@@ -2,6 +2,8 @@ import webpack from 'webpack';
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import LiveReloadPlugin from 'webpack-livereload-plugin';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
 
 const ENV = process.env.NODE_ENV || 'development';
 const DEV = ENV === 'development';
@@ -9,6 +11,8 @@ const PROD = ENV === 'production';
 const SOURCE_DIR = 'src';
 const DEST_DIR = 'dist';
 const PUBLIC_PATH = '/';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default {
   mode: ENV,
@@ -20,32 +24,22 @@ export default {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'eslint-loader',
+          loader: 'babel-loader',
           options: {
-            configFile: path.join(__dirname, '../.eslintrc'),
-            failOnError: PROD,
-            emitError: PROD
+            presets: ['@babel/preset-env', '@babel/preset-react'],
           }
-        },
-        enforce: 'pre'
+        }
       },
       {
-        use: 'babel-loader',
-        test: /\.js$/,
-        exclude: /node_modules/
-      },
-      {
-        use: ['style-loader', 'css-loader'],
+        use: ['css-loader'],
         test: /\.css$/
       },
       {
         test: /\.scss$/,
         use: [{
-          loader: 'style-loader'
-        }, {
           loader: 'css-loader',
           options: {
             sourceMap: true

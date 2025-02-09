@@ -1,39 +1,28 @@
 import webpack from 'webpack';
 import path from 'path';
 import camelCase from 'camelcase';
-import pkg from './package.json';
+//import pkg from './package.json';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+
 
 const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
 const webpackConfig = {
   mode: 'production',
+  entry: "./src/index.js",
   optimization: {
     minimize: false
   },
   output: {
-    filename: `${pkg.name}.js`,
-    library: capitalizeFirstLetter(camelCase(pkg.name)),
-    libraryTarget: 'umd'
+    filename: `${"uc-react-notifications"}.js`,
+    path: path.resolve(dirname(fileURLToPath(import.meta.url)), 'dist'),
+    library: {
+      type: 'module',
+    },
   },
-  externals: {
-    react: {
-      root: 'React',
-      commonjs: 'react',
-      commonjs2: 'react',
-      amd: 'react'
-    },
-    'react-transition-group': {
-      root: ['ReactTransitionGroup'],
-      commonjs: 'react-transition-group',
-      commonjs2: 'react-transition-group',
-      amd: 'react-transition-group'
-    },
-    'prop-types': {
-      root: 'PropTypes',
-      commonjs: 'prop-types',
-      commonjs2: 'prop-types',
-      amd: 'prop-types'
-    }
+  experiments: {
+    outputModule: true,
   },
   module: {
     rules: [
@@ -41,20 +30,26 @@ const webpackConfig = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'eslint-loader',
+          loader: 'babel-loader',
           options: {
-            configFile: path.join(__dirname, '.eslintrc'),
-            failOnError: true,
-            emitError: true
+            presets: ['@babel/preset-env', '@babel/preset-react'],
           }
-        },
-        enforce: 'pre'
+        }
       },
       {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader'
-      }
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
+      },
+
     ]
   },
   resolve: {
@@ -67,7 +62,12 @@ const webpackConfig = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       }
     })
-  ]
+  ],
+  devServer: {
+    static: {
+      directory: path.join(dirname(fileURLToPath(import.meta.url)), './example/src/'),
+    }
+  },
 };
 
 export default webpackConfig;
