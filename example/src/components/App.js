@@ -7,7 +7,7 @@ import NotFound from '../pages/NotFound/index.js';
 import TransitionAnimation from '../pages/TransitionAnimation/index.js';
 import pkg from '../../../package.json';
 
-const DEV = true;//   process && process.env && process.env.NODE_ENV === 'development';
+const DEV = process.env && process.env.NODE_ENV === 'development';
 
 const App = () => (
   <BrowserRouter basename={`/${DEV ? '' : pkg.name}`}>

@@ -24,7 +24,7 @@ export default {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -58,6 +58,11 @@ export default {
   plugins: [
     new HtmlWebpackPlugin({
       template: './example/src/index.html'
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(ENV)
+      }
     }),
     new LiveReloadPlugin()
   ]

@@ -2740,26 +2740,28 @@ var Notification = /*#__PURE__*/function (_React$Component) {
     }
   }]);
 }(react.Component);
-_defineProperty(Notification, "propTypes", {
+_defineProperty(Notification, "propTypes", _defineProperty({
   type: prop_types.oneOf(['info', 'success', 'warning', 'error']),
   title: prop_types.node,
   message: prop_types.node,
   timeOut: prop_types.number,
-  onClick: prop_types.func,
-  onRequestHide: prop_types.func,
   nodeRef: prop_types.shape({
     current: prop_types.instanceOf(Element)
-  })
-});
-_defineProperty(Notification, "defaultProps", {
+  }),
+  onClick: prop_types.func,
+  onRequestHide: prop_types.func
+}, "nodeRef", prop_types.shape({
+  current: prop_types.instanceOf(Element)
+})));
+_defineProperty(Notification, "defaultProps", _defineProperty({
   type: 'info',
   title: null,
   message: null,
   timeOut: 5000,
+  nodeRef: null,
   onClick: function onClick() {},
-  onRequestHide: function onRequestHide() {},
-  nodeRef: null
-});
+  onRequestHide: function onRequestHide() {}
+}, "nodeRef", null));
 /* harmony default export */ const src_Notification = (Notification);
 ;// ./src/Notifications.js
 function Notifications_typeof(o) { "@babel/helpers - typeof"; return Notifications_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, Notifications_typeof(o); }
@@ -2821,15 +2823,15 @@ var Notifications = /*#__PURE__*/function (_React$Component) {
             exit: leaveTimeout
           },
           nodeRef: notification.nodeRef
-        }, /*#__PURE__*/react.createElement(src_Notification, {
+        }, /*#__PURE__*/react.createElement(src_Notification, Notifications_defineProperty({
           type: notification.type,
           title: notification.title,
           message: notification.message,
           timeOut: notification.timeOut,
+          nodeRef: notification.nodeRef,
           onClick: notification.onClick,
-          onRequestHide: _this2.handleRequestHide(notification),
-          nodeRef: notification.nodeRef
-        }));
+          onRequestHide: _this2.handleRequestHide(notification)
+        }, "nodeRef", notification.nodeRef)));
       });
       return /*#__PURE__*/react.createElement("div", {
         className: className
