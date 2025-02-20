@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Notification from './Notification';
 import { Note } from './models';
@@ -22,29 +22,32 @@ const Notifications = ({
       onRequestHide(notification);
   };
 
+  const [items, setItems] = React.useState<React.JSX.Element[]>([]);
 
-  const items = notifications.map((notification) => {
-    const key = notification.id || new Date().getTime();
-    return (
-      <CSSTransition
-        key={key}
-        classNames="notification"
-        timeout={{ enter: enterTimeout, exit: leaveTimeout }}
-        nodeRef={notification.nodeRef}
-      >
-        <Notification
-          type={notification.type}
-          title={notification.title ?? ""}
-          message={notification.message ?? ""}
-          timeOut={notification.timeOut}
-          ref={notification.nodeRef}
-          onClick={notification.onClick ?? (() => {})}
-          onRequestHide={handleRequestHide(notification)}
-        />
-      </CSSTransition>
-    );
-  });
-
+  useEffect(() => {
+    setItems(notifications.map((notification) => {
+      const key = notification.id || new Date().getTime();
+      return (
+        <CSSTransition
+          key={key}
+          classNames="notification"
+          timeout={{ enter: enterTimeout, exit: leaveTimeout }}
+          nodeRef={notification.nodeRef}
+        >
+          <Notification
+            type={notification.type}
+            title={notification.title ?? ""}
+            message={notification.message ?? ""}
+            timeOut={notification.timeOut}
+            ref={notification.nodeRef}
+            onClick={notification.onClick ?? (() => {})}
+            onRequestHide={handleRequestHide(notification)}
+          />
+        </CSSTransition>
+      );
+    }));
+  }, [notifications]);
+  
   return (
     <div className={className}>
       <TransitionGroup>

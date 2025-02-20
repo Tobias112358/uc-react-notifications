@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import path from 'path';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const packageName = 'react-notifications';
 
@@ -17,7 +18,8 @@ const webpackConfig = {
     library: {
       type: 'module',
     },
-    path: path.join(dirname(fileURLToPath(import.meta.url)), './dist/')
+    path: path.join(dirname(fileURLToPath(import.meta.url)), './dist/'),
+    publicPath: '',
   },
   experiments: {
     outputModule: true,
@@ -32,13 +34,30 @@ const webpackConfig = {
       },
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader']
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            
+          },
+          { 
+            loader: 'css-loader',
+
+     
+          }]
       },
+      {
+        test: /\.(ttf|eot|svg|woff(2)?)(\S+)?$/,
+        type: 'asset/inline'
+      }
     ]
   },
   resolve: {
     modules: ['node_modules'],
     extensions: ['.jsx', '.js', '.tsx', '.ts'],
+    alias: {
+      fonts: path.join(dirname(fileURLToPath(import.meta.url)), './src/fonts/'),
+    },
+
   },
   externals: {
     react: "react",
@@ -49,6 +68,15 @@ const webpackConfig = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       }
     }),
+    new MiniCssExtractPlugin({
+      filename: `${packageName}.css`,
+    }),
+    new webpack.BannerPlugin({
+      banner: `import "./${packageName}.css"`,
+      raw: true,
+      exclude: `${packageName}.css`
+    }),
+
   ],
   devServer: {
     static: {

@@ -1,231 +1,6 @@
+import "./react-notifications.css"
 import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 /******/ var __webpack_modules__ = ({
-
-/***/ 411:
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(601);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(314);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-// Imports
-
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, `.notification-container {
-  box-sizing: border-box;
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 999999;
-  width: 320px;
-  padding: 0px 15px;
-  max-height: calc(100% - 30px);
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-.notification {
-  box-sizing: border-box;
-  padding: 15px 15px 15px 58px;
-  border-radius: 2px;
-  color: #fff;
-  background-color: #ccc;
-  box-shadow: 0 0 12px #999;
-  cursor: pointer;
-  font-size: 1em;
-  line-height: 1.2em;
-  position: relative;
-  opacity: 0.9;
-  margin-top: 15px;
-  .title {
-    font-size: 1em;
-    line-height: 1.2em;
-    font-weight: bold;
-    margin: 0 0 5px 0;
-  }
-  &:hover, &:focus {
-    opacity: 1;
-  }
-}
-
-.notification-enter {
-  visibility: hidden;
-  transform: translate3d(100%, 0, 0);
-}
-
-.notification-enter.notification-enter-active {
-  visibility: visible;
-  transform: translate3d(0, 0, 0);
-  transition: all 0.4s;
-}
-
-.notification-exit {
-  visibility: visible;
-  transform: translate3d(0, 0, 0);
-}
-
-.notification-exit.notification-exit-active {
-  visibility: hidden;
-  transform: translate3d(100%, 0, 0);
-  transition: all 0.4s;
-}
-
-.notification {
-  &:before {
-    position: absolute;
-    top: 50%;
-    left: 15px;
-    margin-top: -14px;
-    display: block;
-    font-family: 'Notification';
-    width: 28px;
-    height: 28px;
-    font-size: 28px;
-    text-align: center;
-    line-height: 28px;
-  }
-}
-
-.notification-info {
-  background-color: #2f96b4;
-  &:before {
-    content: "\\f05a";
-  }
-}
-
-.notification-success {
-  background-color: #51a351;
-  &:before {
-    content: "\\f058";
-  }
-}
-
-.notification-warning {
-  background-color: #f89406;
-  &:before {
-    content: "\\f06a";
-  }
-}
-
-.notification-error {
-  background-color: #bd362f;
-  &:before {
-    content: "\\f057";
-  }
-}
-`, ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ 314:
-/***/ ((module) => {
-
-
-
-/*
-  MIT License http://www.opensource.org/licenses/mit-license.php
-  Author Tobias Koppers @sokra
-*/
-module.exports = function (cssWithMappingToString) {
-  var list = [];
-
-  // return the list of modules as css string
-  list.toString = function toString() {
-    return this.map(function (item) {
-      var content = "";
-      var needLayer = typeof item[5] !== "undefined";
-      if (item[4]) {
-        content += "@supports (".concat(item[4], ") {");
-      }
-      if (item[2]) {
-        content += "@media ".concat(item[2], " {");
-      }
-      if (needLayer) {
-        content += "@layer".concat(item[5].length > 0 ? " ".concat(item[5]) : "", " {");
-      }
-      content += cssWithMappingToString(item);
-      if (needLayer) {
-        content += "}";
-      }
-      if (item[2]) {
-        content += "}";
-      }
-      if (item[4]) {
-        content += "}";
-      }
-      return content;
-    }).join("");
-  };
-
-  // import a list of modules into the list
-  list.i = function i(modules, media, dedupe, supports, layer) {
-    if (typeof modules === "string") {
-      modules = [[null, modules, undefined]];
-    }
-    var alreadyImportedModules = {};
-    if (dedupe) {
-      for (var k = 0; k < this.length; k++) {
-        var id = this[k][0];
-        if (id != null) {
-          alreadyImportedModules[id] = true;
-        }
-      }
-    }
-    for (var _k = 0; _k < modules.length; _k++) {
-      var item = [].concat(modules[_k]);
-      if (dedupe && alreadyImportedModules[item[0]]) {
-        continue;
-      }
-      if (typeof layer !== "undefined") {
-        if (typeof item[5] === "undefined") {
-          item[5] = layer;
-        } else {
-          item[1] = "@layer".concat(item[5].length > 0 ? " ".concat(item[5]) : "", " {").concat(item[1], "}");
-          item[5] = layer;
-        }
-      }
-      if (media) {
-        if (!item[2]) {
-          item[2] = media;
-        } else {
-          item[1] = "@media ".concat(item[2], " {").concat(item[1], "}");
-          item[2] = media;
-        }
-      }
-      if (supports) {
-        if (!item[4]) {
-          item[4] = "".concat(supports);
-        } else {
-          item[1] = "@supports (".concat(item[4], ") {").concat(item[1], "}");
-          item[4] = supports;
-        }
-      }
-      list.push(item);
-    }
-  };
-  return list;
-};
-
-/***/ }),
-
-/***/ 601:
-/***/ ((module) => {
-
-
-
-module.exports = function (i) {
-  return i[1];
-};
-
-/***/ }),
 
 /***/ 7:
 /***/ ((module) => {
@@ -982,255 +757,6 @@ if (true) {
 
 /***/ }),
 
-/***/ 72:
-/***/ ((module) => {
-
-
-
-var stylesInDOM = [];
-function getIndexByIdentifier(identifier) {
-  var result = -1;
-  for (var i = 0; i < stylesInDOM.length; i++) {
-    if (stylesInDOM[i].identifier === identifier) {
-      result = i;
-      break;
-    }
-  }
-  return result;
-}
-function modulesToDom(list, options) {
-  var idCountMap = {};
-  var identifiers = [];
-  for (var i = 0; i < list.length; i++) {
-    var item = list[i];
-    var id = options.base ? item[0] + options.base : item[0];
-    var count = idCountMap[id] || 0;
-    var identifier = "".concat(id, " ").concat(count);
-    idCountMap[id] = count + 1;
-    var indexByIdentifier = getIndexByIdentifier(identifier);
-    var obj = {
-      css: item[1],
-      media: item[2],
-      sourceMap: item[3],
-      supports: item[4],
-      layer: item[5]
-    };
-    if (indexByIdentifier !== -1) {
-      stylesInDOM[indexByIdentifier].references++;
-      stylesInDOM[indexByIdentifier].updater(obj);
-    } else {
-      var updater = addElementStyle(obj, options);
-      options.byIndex = i;
-      stylesInDOM.splice(i, 0, {
-        identifier: identifier,
-        updater: updater,
-        references: 1
-      });
-    }
-    identifiers.push(identifier);
-  }
-  return identifiers;
-}
-function addElementStyle(obj, options) {
-  var api = options.domAPI(options);
-  api.update(obj);
-  var updater = function updater(newObj) {
-    if (newObj) {
-      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap && newObj.supports === obj.supports && newObj.layer === obj.layer) {
-        return;
-      }
-      api.update(obj = newObj);
-    } else {
-      api.remove();
-    }
-  };
-  return updater;
-}
-module.exports = function (list, options) {
-  options = options || {};
-  list = list || [];
-  var lastIdentifiers = modulesToDom(list, options);
-  return function update(newList) {
-    newList = newList || [];
-    for (var i = 0; i < lastIdentifiers.length; i++) {
-      var identifier = lastIdentifiers[i];
-      var index = getIndexByIdentifier(identifier);
-      stylesInDOM[index].references--;
-    }
-    var newLastIdentifiers = modulesToDom(newList, options);
-    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
-      var _identifier = lastIdentifiers[_i];
-      var _index = getIndexByIdentifier(_identifier);
-      if (stylesInDOM[_index].references === 0) {
-        stylesInDOM[_index].updater();
-        stylesInDOM.splice(_index, 1);
-      }
-    }
-    lastIdentifiers = newLastIdentifiers;
-  };
-};
-
-/***/ }),
-
-/***/ 659:
-/***/ ((module) => {
-
-
-
-var memo = {};
-
-/* istanbul ignore next  */
-function getTarget(target) {
-  if (typeof memo[target] === "undefined") {
-    var styleTarget = document.querySelector(target);
-
-    // Special case to return head of iframe instead of iframe itself
-    if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
-      try {
-        // This will throw an exception if access to iframe is blocked
-        // due to cross-origin restrictions
-        styleTarget = styleTarget.contentDocument.head;
-      } catch (e) {
-        // istanbul ignore next
-        styleTarget = null;
-      }
-    }
-    memo[target] = styleTarget;
-  }
-  return memo[target];
-}
-
-/* istanbul ignore next  */
-function insertBySelector(insert, style) {
-  var target = getTarget(insert);
-  if (!target) {
-    throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
-  }
-  target.appendChild(style);
-}
-module.exports = insertBySelector;
-
-/***/ }),
-
-/***/ 540:
-/***/ ((module) => {
-
-
-
-/* istanbul ignore next  */
-function insertStyleElement(options) {
-  var element = document.createElement("style");
-  options.setAttributes(element, options.attributes);
-  options.insert(element, options.options);
-  return element;
-}
-module.exports = insertStyleElement;
-
-/***/ }),
-
-/***/ 56:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-
-
-/* istanbul ignore next  */
-function setAttributesWithoutAttributes(styleElement) {
-  var nonce =  true ? __webpack_require__.nc : 0;
-  if (nonce) {
-    styleElement.setAttribute("nonce", nonce);
-  }
-}
-module.exports = setAttributesWithoutAttributes;
-
-/***/ }),
-
-/***/ 825:
-/***/ ((module) => {
-
-
-
-/* istanbul ignore next  */
-function apply(styleElement, options, obj) {
-  var css = "";
-  if (obj.supports) {
-    css += "@supports (".concat(obj.supports, ") {");
-  }
-  if (obj.media) {
-    css += "@media ".concat(obj.media, " {");
-  }
-  var needLayer = typeof obj.layer !== "undefined";
-  if (needLayer) {
-    css += "@layer".concat(obj.layer.length > 0 ? " ".concat(obj.layer) : "", " {");
-  }
-  css += obj.css;
-  if (needLayer) {
-    css += "}";
-  }
-  if (obj.media) {
-    css += "}";
-  }
-  if (obj.supports) {
-    css += "}";
-  }
-  var sourceMap = obj.sourceMap;
-  if (sourceMap && typeof btoa !== "undefined") {
-    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
-  }
-
-  // For old IE
-  /* istanbul ignore if  */
-  options.styleTagTransform(css, styleElement, options.options);
-}
-function removeStyleElement(styleElement) {
-  // istanbul ignore if
-  if (styleElement.parentNode === null) {
-    return false;
-  }
-  styleElement.parentNode.removeChild(styleElement);
-}
-
-/* istanbul ignore next  */
-function domAPI(options) {
-  if (typeof document === "undefined") {
-    return {
-      update: function update() {},
-      remove: function remove() {}
-    };
-  }
-  var styleElement = options.insertStyleElement(options);
-  return {
-    update: function update(obj) {
-      apply(styleElement, options, obj);
-    },
-    remove: function remove() {
-      removeStyleElement(styleElement);
-    }
-  };
-}
-module.exports = domAPI;
-
-/***/ }),
-
-/***/ 113:
-/***/ ((module) => {
-
-
-
-/* istanbul ignore next  */
-function styleTagTransform(css, styleElement) {
-  if (styleElement.styleSheet) {
-    styleElement.styleSheet.cssText = css;
-  } else {
-    while (styleElement.firstChild) {
-      styleElement.removeChild(styleElement.firstChild);
-    }
-    styleElement.appendChild(document.createTextNode(css));
-  }
-}
-module.exports = styleTagTransform;
-
-/***/ }),
-
 /***/ 649:
 /***/ ((module) => {
 
@@ -1252,7 +778,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_react__;
 /******/ 	}
 /******/ 	// Create a new module (and put it into the cache)
 /******/ 	var module = __webpack_module_cache__[moduleId] = {
-/******/ 		id: moduleId,
+/******/ 		// no module.id needed
 /******/ 		// no module.loaded needed
 /******/ 		exports: {}
 /******/ 	};
@@ -1265,18 +791,6 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_react__;
 /******/ }
 /******/ 
 /************************************************************************/
-/******/ /* webpack/runtime/compat get default export */
-/******/ (() => {
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = (module) => {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			() => (module['default']) :
-/******/ 			() => (module);
-/******/ 		__webpack_require__.d(getter, { a: getter });
-/******/ 		return getter;
-/******/ 	};
-/******/ })();
-/******/ 
 /******/ /* webpack/runtime/define property getters */
 /******/ (() => {
 /******/ 	// define getter functions for harmony exports
@@ -1294,190 +808,18 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_react__;
 /******/ 	__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ })();
 /******/ 
-/******/ /* webpack/runtime/nonce */
-/******/ (() => {
-/******/ 	__webpack_require__.nc = undefined;
-/******/ })();
-/******/ 
 /************************************************************************/
 var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  b: () => (/* reexport */ src_NotificationContainer),
-  h: () => (/* reexport */ src_NotificationManager)
+  bL: () => (/* reexport */ src_NotificationContainer),
+  hm: () => (/* reexport */ src_NotificationManager),
+  $0: () => (/* reexport */ src_Notifications)
 });
-
-// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js
-var injectStylesIntoStyleTag = __webpack_require__(72);
-var injectStylesIntoStyleTag_default = /*#__PURE__*/__webpack_require__.n(injectStylesIntoStyleTag);
-// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/styleDomAPI.js
-var styleDomAPI = __webpack_require__(825);
-var styleDomAPI_default = /*#__PURE__*/__webpack_require__.n(styleDomAPI);
-// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/insertBySelector.js
-var insertBySelector = __webpack_require__(659);
-var insertBySelector_default = /*#__PURE__*/__webpack_require__.n(insertBySelector);
-// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js
-var setAttributesWithoutAttributes = __webpack_require__(56);
-var setAttributesWithoutAttributes_default = /*#__PURE__*/__webpack_require__.n(setAttributesWithoutAttributes);
-// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/insertStyleElement.js
-var insertStyleElement = __webpack_require__(540);
-var insertStyleElement_default = /*#__PURE__*/__webpack_require__.n(insertStyleElement);
-// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/styleTagTransform.js
-var styleTagTransform = __webpack_require__(113);
-var styleTagTransform_default = /*#__PURE__*/__webpack_require__.n(styleTagTransform);
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/notifications.css
-var notifications = __webpack_require__(411);
-;// ./src/notifications.css
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
-
-var options = {};
-
-options.styleTagTransform = (styleTagTransform_default());
-options.setAttributes = (setAttributesWithoutAttributes_default());
-options.insert = insertBySelector_default().bind(null, "head");
-options.domAPI = (styleDomAPI_default());
-options.insertStyleElement = (insertStyleElement_default());
-
-var update = injectStylesIntoStyleTag_default()(notifications/* default */.A, options);
-
-
-
-
-       /* harmony default export */ const src_notifications = (notifications/* default */.A && notifications/* default */.A.locals ? notifications/* default */.A.locals : undefined);
 
 // EXTERNAL MODULE: external "react"
 var external_react_ = __webpack_require__(649);
-// EXTERNAL MODULE: ./node_modules/events/events.js
-var events = __webpack_require__(7);
-;// ./src/models/index.ts
-var NotificationType;
-(function (NotificationType) {
-    NotificationType["Info"] = "info";
-    NotificationType["Success"] = "success";
-    NotificationType["Warning"] = "warning";
-    NotificationType["Error"] = "error";
-})(NotificationType || (NotificationType = {}));
-
-;// ./src/NotificationManager.ts
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-
-
-var createUUID = function () {
-    var pattern = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx';
-    return pattern.replace(/[xy]/g, function (c) {
-        var r = (Math.random() * 16) | 0;
-        var v = c === 'x' ? r : ((r & 0x3) | 0x8);
-        return v.toString(16);
-    });
-};
-var NotificationManager = /** @class */ (function (_super) {
-    __extends(NotificationManager, _super);
-    function NotificationManager() {
-        var _this = _super.call(this) || this;
-        _this.listNotify = [];
-        return _this;
-    }
-    NotificationManager.prototype.create = function (notify) {
-        var defaultNotify = {
-            id: createUUID(),
-            type: NotificationType.Info,
-            timeOut: 5000,
-            nodeRef: external_react_["default"].createRef()
-        };
-        if (notify.priority) {
-            this.listNotify.unshift(Object.assign(defaultNotify, notify));
-        }
-        else {
-            this.listNotify.push(Object.assign(defaultNotify, notify));
-        }
-        this.emitChange();
-    };
-    NotificationManager.prototype.info = function (message, title, timeOut, onClick, priority) {
-        this.create({
-            type: NotificationType.Info,
-            message: message,
-            title: title,
-            timeOut: timeOut,
-            onClick: onClick,
-            priority: priority
-        });
-    };
-    NotificationManager.prototype.success = function (message, title, timeOut, onClick, priority) {
-        this.create({
-            type: NotificationType.Success,
-            message: message,
-            title: title,
-            timeOut: timeOut,
-            onClick: onClick,
-            priority: priority
-        });
-    };
-    NotificationManager.prototype.warning = function (message, title, timeOut, onClick, priority) {
-        this.create({
-            type: NotificationType.Warning,
-            message: message,
-            title: title,
-            timeOut: timeOut,
-            onClick: onClick,
-            priority: priority
-        });
-    };
-    NotificationManager.prototype.error = function (message, title, timeOut, onClick, priority) {
-        this.create({
-            type: NotificationType.Error,
-            message: message,
-            title: title,
-            timeOut: timeOut,
-            onClick: onClick,
-            priority: priority
-        });
-    };
-    NotificationManager.prototype.remove = function (notification) {
-        this.listNotify = this.listNotify.filter(function (n) { return notification.id !== n.id; });
-        this.emitChange();
-    };
-    NotificationManager.prototype.removeAll = function () {
-        this.listNotify.length = 0;
-        this.emitChange();
-    };
-    NotificationManager.prototype.emitChange = function () {
-        this.emit('change', this.listNotify);
-    };
-    NotificationManager.prototype.addChangeListener = function (callback) {
-        this.addListener('change', callback);
-    };
-    NotificationManager.prototype.removeChangeListener = function (callback) {
-        this.removeListener('change', callback);
-    };
-    return NotificationManager;
-}(events.EventEmitter));
-/* harmony default export */ const src_NotificationManager = (new NotificationManager());
-
 ;// ./node_modules/@babel/runtime/helpers/esm/extends.js
 function _extends() {
   return _extends = Object.assign ? Object.assign.bind() : function (n) {
@@ -2576,6 +1918,7 @@ TransitionGroup.defaultProps = defaultProps;
 /* harmony default export */ const esm_TransitionGroup = (TransitionGroup);
 ;// ./src/Notification.tsx
 
+
 var Notification = (0,external_react_.forwardRef)(function (_a, nodeRef) {
     var type = _a.type, title = _a.title, message = _a.message, _b = _a.timeOut, timeOut = _b === void 0 ? 5000 : _b, onClick = _a.onClick, onRequestHide = _a.onRequestHide;
     var className = "notification notification-".concat(type);
@@ -2608,18 +1951,151 @@ var Notifications = function (_a) {
     var handleRequestHide = function (notification) { return function () {
         onRequestHide(notification);
     }; };
-    var items = notifications.map(function (notification) {
-        var _a, _b, _c;
-        var key = notification.id || new Date().getTime();
-        return (external_react_["default"].createElement(esm_CSSTransition, { key: key, classNames: "notification", timeout: { enter: enterTimeout, exit: leaveTimeout }, nodeRef: notification.nodeRef },
-            external_react_["default"].createElement(src_Notification, { type: notification.type, title: (_a = notification.title) !== null && _a !== void 0 ? _a : "", message: (_b = notification.message) !== null && _b !== void 0 ? _b : "", timeOut: notification.timeOut, ref: notification.nodeRef, onClick: (_c = notification.onClick) !== null && _c !== void 0 ? _c : (function () { }), onRequestHide: handleRequestHide(notification) })));
-    });
+    var _b = external_react_["default"].useState([]), items = _b[0], setItems = _b[1];
+    (0,external_react_.useEffect)(function () {
+        setItems(notifications.map(function (notification) {
+            var _a, _b, _c;
+            var key = notification.id || new Date().getTime();
+            return (external_react_["default"].createElement(esm_CSSTransition, { key: key, classNames: "notification", timeout: { enter: enterTimeout, exit: leaveTimeout }, nodeRef: notification.nodeRef },
+                external_react_["default"].createElement(src_Notification, { type: notification.type, title: (_a = notification.title) !== null && _a !== void 0 ? _a : "", message: (_b = notification.message) !== null && _b !== void 0 ? _b : "", timeOut: notification.timeOut, ref: notification.nodeRef, onClick: (_c = notification.onClick) !== null && _c !== void 0 ? _c : (function () { }), onRequestHide: handleRequestHide(notification) })));
+        }));
+    }, [notifications]);
     return (external_react_["default"].createElement("div", { className: className },
         external_react_["default"].createElement(esm_TransitionGroup, null, items)));
 };
 /* harmony default export */ const src_Notifications = (Notifications);
 
+// EXTERNAL MODULE: ./node_modules/events/events.js
+var events = __webpack_require__(7);
+;// ./src/models/index.ts
+var NotificationType;
+(function (NotificationType) {
+    NotificationType["Info"] = "info";
+    NotificationType["Success"] = "success";
+    NotificationType["Warning"] = "warning";
+    NotificationType["Error"] = "error";
+})(NotificationType || (NotificationType = {}));
+
+;// ./src/NotificationManager.ts
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+
+var createUUID = function () {
+    var pattern = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx';
+    return pattern.replace(/[xy]/g, function (c) {
+        var r = (Math.random() * 16) | 0;
+        var v = c === 'x' ? r : ((r & 0x3) | 0x8);
+        return v.toString(16);
+    });
+};
+var NotificationManager = /** @class */ (function (_super) {
+    __extends(NotificationManager, _super);
+    function NotificationManager() {
+        var _this = _super.call(this) || this;
+        _this.listNotify = [];
+        return _this;
+    }
+    NotificationManager.prototype.create = function (notify) {
+        var defaultNotify = {
+            id: createUUID(),
+            type: NotificationType.Info,
+            timeOut: 5000,
+            nodeRef: external_react_["default"].createRef()
+        };
+        if (notify.priority) {
+            this.listNotify.unshift(Object.assign(defaultNotify, notify));
+        }
+        else {
+            this.listNotify.push(Object.assign(defaultNotify, notify));
+        }
+        this.emitChange();
+    };
+    NotificationManager.prototype.info = function (message, title, timeOut, onClick, priority) {
+        this.create({
+            type: NotificationType.Info,
+            message: message,
+            title: title,
+            timeOut: timeOut,
+            onClick: onClick,
+            priority: priority
+        });
+    };
+    NotificationManager.prototype.success = function (message, title, timeOut, onClick, priority) {
+        this.create({
+            type: NotificationType.Success,
+            message: message,
+            title: title,
+            timeOut: timeOut,
+            onClick: onClick,
+            priority: priority
+        });
+    };
+    NotificationManager.prototype.warning = function (message, title, timeOut, onClick, priority) {
+        this.create({
+            type: NotificationType.Warning,
+            message: message,
+            title: title,
+            timeOut: timeOut,
+            onClick: onClick,
+            priority: priority
+        });
+    };
+    NotificationManager.prototype.error = function (message, title, timeOut, onClick, priority) {
+        this.create({
+            type: NotificationType.Error,
+            message: message,
+            title: title,
+            timeOut: timeOut,
+            onClick: onClick,
+            priority: priority
+        });
+    };
+    NotificationManager.prototype.remove = function (notification) {
+        this.listNotify = this.listNotify.filter(function (n) { return notification.id !== n.id; });
+        this.emitChange();
+    };
+    NotificationManager.prototype.removeAll = function () {
+        this.listNotify.length = 0;
+        this.emitChange();
+    };
+    NotificationManager.prototype.emitChange = function () {
+        this.emit('change', this.listNotify);
+    };
+    NotificationManager.prototype.addChangeListener = function (callback) {
+        this.addListener('change', callback);
+    };
+    NotificationManager.prototype.removeChangeListener = function (callback) {
+        this.removeListener('change', callback);
+    };
+    return NotificationManager;
+}(events.EventEmitter));
+/* harmony default export */ const src_NotificationManager = (new NotificationManager());
+
 ;// ./src/NotificationContainer.tsx
+var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 
 
 
@@ -2632,9 +2108,9 @@ var NotificationContainer = function (_a) {
             src_NotificationManager.removeChangeListener(handleStoreChange);
         };
     }, []);
-    var handleStoreChange = function (notifications) {
-        setNotifications(notifications);
-    };
+    var handleStoreChange = (0,external_react_.useCallback)(function (updatedNotifcationList) {
+        setNotifications(__spreadArray([], updatedNotifcationList, true));
+    }, []);
     var handleRequestHide = function (notification) {
         src_NotificationManager.remove(notification);
     };
@@ -2648,6 +2124,8 @@ var NotificationContainer = function (_a) {
 
 
 
-var __webpack_exports__NotificationContainer = __webpack_exports__.b;
-var __webpack_exports__NotificationManager = __webpack_exports__.h;
-export { __webpack_exports__NotificationContainer as NotificationContainer, __webpack_exports__NotificationManager as NotificationManager };
+
+var __webpack_exports__NotificationContainer = __webpack_exports__.bL;
+var __webpack_exports__NotificationManager = __webpack_exports__.hm;
+var __webpack_exports__Notifications = __webpack_exports__.$0;
+export { __webpack_exports__NotificationContainer as NotificationContainer, __webpack_exports__NotificationManager as NotificationManager, __webpack_exports__Notifications as Notifications };

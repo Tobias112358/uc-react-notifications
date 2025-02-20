@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import NotificationManager from './NotificationManager';
 import Notifications from './Notifications';
 import { Note } from './models';
@@ -20,9 +20,9 @@ const NotificationContainer = ({
     }
   }, []);
 
-  const handleStoreChange = (notifications: Note[]) => {
-    setNotifications(notifications);
-  };
+  const handleStoreChange = useCallback((updatedNotifcationList: Note[]) => {
+    setNotifications([...updatedNotifcationList]);
+  }, []);
 
   const handleRequestHide = (notification: Note) => {
     NotificationManager.remove(notification);

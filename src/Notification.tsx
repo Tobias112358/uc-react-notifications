@@ -1,5 +1,6 @@
 import React, { forwardRef, Ref, useEffect } from 'react';
 import { NotificationProps } from './models';
+import './notifications.css';
 
 const Notification = forwardRef(({
   type,

@@ -34,11 +34,7 @@ export default {
         }
       },
       {
-        use: ['css-loader'],
-        test: /\.css$/
-      },
-      {
-        test: /\.scss$/,
+        test: /\.(scss|css)$/,
         use: [
           'style-loader',
           'css-loader',
