@@ -8,6 +8,14 @@
 npm install --save react-notifications
 ```
 
+#### Note
+
+The above is to install the original package. Currently, the best way to import this specific version is to add:
+```"react-notifications" : "git://github.com/Tobias112358/uc-react-notifications.git"``` in your `package.json`.
+
+
+Furthermore, some information in this readme may be outdated. Pleace check the code in ./src to get an understanding of any major differences.
+
 ## Usage
 
 ### Note

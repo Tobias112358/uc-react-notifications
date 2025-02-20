@@ -1,73 +1,88 @@
 import webpack from 'webpack';
 import path from 'path';
-import camelCase from 'camelcase';
-import pkg from './package.json';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
+const packageName = 'react-notifications';
 
 const webpackConfig = {
   mode: 'production',
+  entry: "./src/index.ts",
+  //devtool: 'inline-source-map',
   optimization: {
     minimize: false
   },
   output: {
-    filename: `${pkg.name}.js`,
-    library: capitalizeFirstLetter(camelCase(pkg.name)),
-    libraryTarget: 'umd'
+    filename: `${packageName}.js`,
+    library: {
+      type: 'module',
+    },
+    path: path.join(dirname(fileURLToPath(import.meta.url)), './dist/'),
+    publicPath: '',
   },
-  externals: {
-    react: {
-      root: 'React',
-      commonjs: 'react',
-      commonjs2: 'react',
-      amd: 'react'
-    },
-    'react-transition-group': {
-      root: ['ReactTransitionGroup'],
-      commonjs: 'react-transition-group',
-      commonjs2: 'react-transition-group',
-      amd: 'react-transition-group'
-    },
-    'prop-types': {
-      root: 'PropTypes',
-      commonjs: 'prop-types',
-      commonjs2: 'prop-types',
-      amd: 'prop-types'
-    }
+  experiments: {
+    outputModule: true,
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
+        test: /(?<!\.d)\.ts(x?)$/,
         use: {
-          loader: 'eslint-loader',
-          options: {
-            configFile: path.join(__dirname, '.eslintrc'),
-            failOnError: true,
-            emitError: true
-          }
+          loader: 'ts-loader',
         },
-        enforce: 'pre'
       },
       {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader'
+        test: /\.css$/i,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            
+          },
+          { 
+            loader: 'css-loader',
+
+     
+          }]
+      },
+      {
+        test: /\.(ttf|eot|svg|woff(2)?)(\S+)?$/,
+        type: 'asset/inline'
       }
     ]
   },
   resolve: {
     modules: ['node_modules'],
-    extensions: ['.jsx', '.js']
+    extensions: ['.jsx', '.js', '.tsx', '.ts'],
+    alias: {
+      fonts: path.join(dirname(fileURLToPath(import.meta.url)), './src/fonts/'),
+    },
+
+  },
+  externals: {
+    react: "react",
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       }
-    })
-  ]
+    }),
+    new MiniCssExtractPlugin({
+      filename: `${packageName}.css`,
+    }),
+    new webpack.BannerPlugin({
+      banner: `import "./${packageName}.css"`,
+      raw: true,
+      exclude: `${packageName}.css`
+    }),
+
+  ],
+  devServer: {
+    static: {
+      directory: path.join(dirname(fileURLToPath(import.meta.url)), './example/src/'),
+    }
+  },
 };
 
 export default webpackConfig;

@@ -1,3 +1,8 @@
+@use "sass:list";
+@use "sass:map";
+@use "sass:string";
+@use "variables";
+
 @mixin clearfix() {
   &:before,
   &:after {
@@ -10,9 +15,9 @@
 }
 
 @function str-replace($string, $search, $replace: "") {
-  $index: str-index($string, $search);
+  $index: string.index($string, $search);
   @if $index {
-    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    @return string.slice($string, 1, $index - 1) + $replace + str-replace(string.slice($string, $index + string.length($search)), $search, $replace);
   }
   @return $string;
 }
@@ -28,12 +33,12 @@
     ttf: "truetype"
   );
   @each $extension in $extensions {
-    $extensionMod: if(map-has-key($extensionMods, $extension), $extension + map-get($extensionMods, $extension), $extension);
-    $format: if(map-has-key($formats, $extension), map-get($formats, $extension), $extension);
-    $src: append($src, url(quote($path + "." + $extensionMod)) format(quote($format)), comma);
+    $extensionMod: if(map.has-key($extensionMods, $extension), $extension + map.get($extensionMods, $extension), $extension);
+    $format: if(map.has-key($formats, $extension), map.get($formats, $extension), $extension);
+    $src: list.append($src, url(string.quote($path + "." + $extensionMod)) format(string.quote($format)), comma);
   }
   @font-face {
-    font-family: quote($name);
+    font-family: string.quote($name);
     font-style: $style;
     font-weight: $weight;
     src: $src;
@@ -52,22 +57,22 @@
   }
 }
 
-@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
-  $n: index($breakpoint-names, $name);
-  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+@function breakpoint-next($name, $breakpoints: variables.$grid-breakpoints, $breakpoint-names: map.keys($breakpoints)) {
+  $n: list.index($breakpoint-names, $name);
+  @return if($n < list.length($breakpoint-names), list.nth($breakpoint-names, $n + 1), null);
 }
 
-@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
-  $min: map-get($breakpoints, $name);
+@function breakpoint-min($name, $breakpoints: variables.$grid-breakpoints) {
+  $min: map.get($breakpoints, $name);
   @return if($min != 0, $min, null);
 }
 
-@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+@function breakpoint-max($name, $breakpoints: variables.$grid-breakpoints) {
   $next: breakpoint-next($name, $breakpoints);
   @return if($next, breakpoint-min($next, $breakpoints) - 1px, null);
 }
 
-@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+@mixin media-breakpoint-up($name, $breakpoints: variables.$grid-breakpoints) {
   $min: breakpoint-min($name, $breakpoints);
   @if $min {
     @media (min-width: $min) {
@@ -78,7 +83,7 @@
   }
 }
 
-@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+@mixin media-breakpoint-down($name, $breakpoints: variables.$grid-breakpoints) {
   $max: breakpoint-max($name, $breakpoints);
   @if $max {
     @media (max-width: $max) {
@@ -89,7 +94,7 @@
   }
 }
 
-@mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints) {
+@mixin media-breakpoint-only($name, $breakpoints: variables.$grid-breakpoints) {
   @include media-breakpoint-up($name, $breakpoints) {
     @include media-breakpoint-down($name, $breakpoints) {
       @content;
@@ -97,7 +102,7 @@
   }
 }
 
-@mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints) {
+@mixin media-breakpoint-between($lower, $upper, $breakpoints: variables.$grid-breakpoints) {
   @include media-breakpoint-up($lower, $breakpoints) {
     @include media-breakpoint-down($upper, $breakpoints) {
       @content;

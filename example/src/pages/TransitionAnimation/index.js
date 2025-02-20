@@ -1,6 +1,6 @@
 import React from 'react';
-import Document from '../../components/Document';
-import { NotificationContainer, NotificationManager } from '../../../../dist/react-notifications';
+import Document from '../../components/Document.js';
+import { NotificationContainer, NotificationManager } from '../../../../dist/react-notifications.js';
 
 import './notifications.scss';
 
