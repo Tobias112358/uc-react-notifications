@@ -2,16 +2,13 @@ import webpack from 'webpack';
 import path from 'path';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-
-
-const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
 const packageName = 'react-notifications';
 
 const webpackConfig = {
   mode: 'production',
-  entry: "./src/index.js",
+  entry: "./src/index.ts",
+  //devtool: 'inline-source-map',
   optimization: {
     minimize: false
   },
@@ -20,6 +17,7 @@ const webpackConfig = {
     library: {
       type: 'module',
     },
+    path: path.join(dirname(fileURLToPath(import.meta.url)), './dist/')
   },
   experiments: {
     outputModule: true,
@@ -27,38 +25,29 @@ const webpackConfig = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
+        test: /(?<!\.d)\.ts(x?)$/,
         use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-          }
-        }
+          loader: 'ts-loader',
+        },
       },
       {
-        test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader',
-        ],
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader']
       },
-
     ]
   },
   resolve: {
     modules: ['node_modules'],
-    extensions: ['.jsx', '.js']
+    extensions: ['.jsx', '.js', '.tsx', '.ts'],
+  },
+  externals: {
+    react: "react",
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       }
-    }),
-    new MiniCssExtractPlugin({
-      filename: `${packageName}.css`,
     }),
   ],
   devServer: {

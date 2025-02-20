@@ -1,4 +1,231 @@
+import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 /******/ var __webpack_modules__ = ({
+
+/***/ 411:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(601);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(314);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `.notification-container {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999999;
+  width: 320px;
+  padding: 0px 15px;
+  max-height: calc(100% - 30px);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.notification {
+  box-sizing: border-box;
+  padding: 15px 15px 15px 58px;
+  border-radius: 2px;
+  color: #fff;
+  background-color: #ccc;
+  box-shadow: 0 0 12px #999;
+  cursor: pointer;
+  font-size: 1em;
+  line-height: 1.2em;
+  position: relative;
+  opacity: 0.9;
+  margin-top: 15px;
+  .title {
+    font-size: 1em;
+    line-height: 1.2em;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+  }
+  &:hover, &:focus {
+    opacity: 1;
+  }
+}
+
+.notification-enter {
+  visibility: hidden;
+  transform: translate3d(100%, 0, 0);
+}
+
+.notification-enter.notification-enter-active {
+  visibility: visible;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.4s;
+}
+
+.notification-exit {
+  visibility: visible;
+  transform: translate3d(0, 0, 0);
+}
+
+.notification-exit.notification-exit-active {
+  visibility: hidden;
+  transform: translate3d(100%, 0, 0);
+  transition: all 0.4s;
+}
+
+.notification {
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    margin-top: -14px;
+    display: block;
+    font-family: 'Notification';
+    width: 28px;
+    height: 28px;
+    font-size: 28px;
+    text-align: center;
+    line-height: 28px;
+  }
+}
+
+.notification-info {
+  background-color: #2f96b4;
+  &:before {
+    content: "\\f05a";
+  }
+}
+
+.notification-success {
+  background-color: #51a351;
+  &:before {
+    content: "\\f058";
+  }
+}
+
+.notification-warning {
+  background-color: #f89406;
+  &:before {
+    content: "\\f06a";
+  }
+}
+
+.notification-error {
+  background-color: #bd362f;
+  &:before {
+    content: "\\f057";
+  }
+}
+`, ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ 314:
+/***/ ((module) => {
+
+
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+module.exports = function (cssWithMappingToString) {
+  var list = [];
+
+  // return the list of modules as css string
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = "";
+      var needLayer = typeof item[5] !== "undefined";
+      if (item[4]) {
+        content += "@supports (".concat(item[4], ") {");
+      }
+      if (item[2]) {
+        content += "@media ".concat(item[2], " {");
+      }
+      if (needLayer) {
+        content += "@layer".concat(item[5].length > 0 ? " ".concat(item[5]) : "", " {");
+      }
+      content += cssWithMappingToString(item);
+      if (needLayer) {
+        content += "}";
+      }
+      if (item[2]) {
+        content += "}";
+      }
+      if (item[4]) {
+        content += "}";
+      }
+      return content;
+    }).join("");
+  };
+
+  // import a list of modules into the list
+  list.i = function i(modules, media, dedupe, supports, layer) {
+    if (typeof modules === "string") {
+      modules = [[null, modules, undefined]];
+    }
+    var alreadyImportedModules = {};
+    if (dedupe) {
+      for (var k = 0; k < this.length; k++) {
+        var id = this[k][0];
+        if (id != null) {
+          alreadyImportedModules[id] = true;
+        }
+      }
+    }
+    for (var _k = 0; _k < modules.length; _k++) {
+      var item = [].concat(modules[_k]);
+      if (dedupe && alreadyImportedModules[item[0]]) {
+        continue;
+      }
+      if (typeof layer !== "undefined") {
+        if (typeof item[5] === "undefined") {
+          item[5] = layer;
+        } else {
+          item[1] = "@layer".concat(item[5].length > 0 ? " ".concat(item[5]) : "", " {").concat(item[1], "}");
+          item[5] = layer;
+        }
+      }
+      if (media) {
+        if (!item[2]) {
+          item[2] = media;
+        } else {
+          item[1] = "@media ".concat(item[2], " {").concat(item[1], "}");
+          item[2] = media;
+        }
+      }
+      if (supports) {
+        if (!item[4]) {
+          item[4] = "".concat(supports);
+        } else {
+          item[1] = "@supports (".concat(item[4], ") {").concat(item[1], "}");
+          item[4] = supports;
+        }
+      }
+      list.push(item);
+    }
+  };
+  return list;
+};
+
+/***/ }),
+
+/***/ 601:
+/***/ ((module) => {
+
+
+
+module.exports = function (i) {
+  return i[1];
+};
+
+/***/ }),
 
 /***/ 7:
 /***/ ((module) => {
@@ -504,116 +731,6 @@ function eventTargetAgnosticAddListener(emitter, name, listener, flags) {
 
 /***/ }),
 
-/***/ 694:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-
-var ReactPropTypesSecret = __webpack_require__(925);
-
-function emptyFunction() {}
-function emptyFunctionWithReset() {}
-emptyFunctionWithReset.resetWarningCache = emptyFunction;
-
-module.exports = function() {
-  function shim(props, propName, componentName, location, propFullName, secret) {
-    if (secret === ReactPropTypesSecret) {
-      // It is still safe when called from React.
-      return;
-    }
-    var err = new Error(
-      'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
-      'Use PropTypes.checkPropTypes() to call them. ' +
-      'Read more at http://fb.me/use-check-prop-types'
-    );
-    err.name = 'Invariant Violation';
-    throw err;
-  };
-  shim.isRequired = shim;
-  function getShim() {
-    return shim;
-  };
-  // Important!
-  // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
-  var ReactPropTypes = {
-    array: shim,
-    bigint: shim,
-    bool: shim,
-    func: shim,
-    number: shim,
-    object: shim,
-    string: shim,
-    symbol: shim,
-
-    any: shim,
-    arrayOf: getShim,
-    element: shim,
-    elementType: shim,
-    instanceOf: getShim,
-    node: shim,
-    objectOf: getShim,
-    oneOf: getShim,
-    oneOfType: getShim,
-    shape: getShim,
-    exact: getShim,
-
-    checkPropTypes: emptyFunctionWithReset,
-    resetWarningCache: emptyFunction
-  };
-
-  ReactPropTypes.PropTypes = ReactPropTypes;
-
-  return ReactPropTypes;
-};
-
-
-/***/ }),
-
-/***/ 556:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-if (false) { var throwOnDirectAccess, ReactIs; } else {
-  // By explicitly using `prop-types` you are opting into new production behavior.
-  // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(694)();
-}
-
-
-/***/ }),
-
-/***/ 925:
-/***/ ((module) => {
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-
-var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
-
-module.exports = ReactPropTypesSecret;
-
-
-/***/ }),
-
 /***/ 221:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -628,7 +745,7 @@ module.exports = ReactPropTypesSecret;
  */
 
 
-var React = __webpack_require__(540);
+var React = __webpack_require__(649);
 function formatProdErrorMessage(code) {
   var url = "https://react.dev/errors/" + code;
   if (1 < arguments.length) {
@@ -865,643 +982,259 @@ if (true) {
 
 /***/ }),
 
-/***/ 869:
-/***/ ((__unused_webpack_module, exports) => {
-
-/**
- * @license React
- * react.production.js
- *
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
+/***/ 72:
+/***/ ((module) => {
 
 
-var REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"),
-  REACT_PORTAL_TYPE = Symbol.for("react.portal"),
-  REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"),
-  REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"),
-  REACT_PROFILER_TYPE = Symbol.for("react.profiler"),
-  REACT_CONSUMER_TYPE = Symbol.for("react.consumer"),
-  REACT_CONTEXT_TYPE = Symbol.for("react.context"),
-  REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"),
-  REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"),
-  REACT_MEMO_TYPE = Symbol.for("react.memo"),
-  REACT_LAZY_TYPE = Symbol.for("react.lazy"),
-  MAYBE_ITERATOR_SYMBOL = Symbol.iterator;
-function getIteratorFn(maybeIterable) {
-  if (null === maybeIterable || "object" !== typeof maybeIterable) return null;
-  maybeIterable =
-    (MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL]) ||
-    maybeIterable["@@iterator"];
-  return "function" === typeof maybeIterable ? maybeIterable : null;
-}
-var ReactNoopUpdateQueue = {
-    isMounted: function () {
-      return !1;
-    },
-    enqueueForceUpdate: function () {},
-    enqueueReplaceState: function () {},
-    enqueueSetState: function () {}
-  },
-  assign = Object.assign,
-  emptyObject = {};
-function Component(props, context, updater) {
-  this.props = props;
-  this.context = context;
-  this.refs = emptyObject;
-  this.updater = updater || ReactNoopUpdateQueue;
-}
-Component.prototype.isReactComponent = {};
-Component.prototype.setState = function (partialState, callback) {
-  if (
-    "object" !== typeof partialState &&
-    "function" !== typeof partialState &&
-    null != partialState
-  )
-    throw Error(
-      "takes an object of state variables to update or a function which returns an object of state variables."
-    );
-  this.updater.enqueueSetState(this, partialState, callback, "setState");
-};
-Component.prototype.forceUpdate = function (callback) {
-  this.updater.enqueueForceUpdate(this, callback, "forceUpdate");
-};
-function ComponentDummy() {}
-ComponentDummy.prototype = Component.prototype;
-function PureComponent(props, context, updater) {
-  this.props = props;
-  this.context = context;
-  this.refs = emptyObject;
-  this.updater = updater || ReactNoopUpdateQueue;
-}
-var pureComponentPrototype = (PureComponent.prototype = new ComponentDummy());
-pureComponentPrototype.constructor = PureComponent;
-assign(pureComponentPrototype, Component.prototype);
-pureComponentPrototype.isPureReactComponent = !0;
-var isArrayImpl = Array.isArray,
-  ReactSharedInternals = { H: null, A: null, T: null, S: null },
-  hasOwnProperty = Object.prototype.hasOwnProperty;
-function ReactElement(type, key, self, source, owner, props) {
-  self = props.ref;
-  return {
-    $$typeof: REACT_ELEMENT_TYPE,
-    type: type,
-    key: key,
-    ref: void 0 !== self ? self : null,
-    props: props
-  };
-}
-function cloneAndReplaceKey(oldElement, newKey) {
-  return ReactElement(
-    oldElement.type,
-    newKey,
-    void 0,
-    void 0,
-    void 0,
-    oldElement.props
-  );
-}
-function isValidElement(object) {
-  return (
-    "object" === typeof object &&
-    null !== object &&
-    object.$$typeof === REACT_ELEMENT_TYPE
-  );
-}
-function escape(key) {
-  var escaperLookup = { "=": "=0", ":": "=2" };
-  return (
-    "$" +
-    key.replace(/[=:]/g, function (match) {
-      return escaperLookup[match];
-    })
-  );
-}
-var userProvidedKeyEscapeRegex = /\/+/g;
-function getElementKey(element, index) {
-  return "object" === typeof element && null !== element && null != element.key
-    ? escape("" + element.key)
-    : index.toString(36);
-}
-function noop$1() {}
-function resolveThenable(thenable) {
-  switch (thenable.status) {
-    case "fulfilled":
-      return thenable.value;
-    case "rejected":
-      throw thenable.reason;
-    default:
-      switch (
-        ("string" === typeof thenable.status
-          ? thenable.then(noop$1, noop$1)
-          : ((thenable.status = "pending"),
-            thenable.then(
-              function (fulfilledValue) {
-                "pending" === thenable.status &&
-                  ((thenable.status = "fulfilled"),
-                  (thenable.value = fulfilledValue));
-              },
-              function (error) {
-                "pending" === thenable.status &&
-                  ((thenable.status = "rejected"), (thenable.reason = error));
-              }
-            )),
-        thenable.status)
-      ) {
-        case "fulfilled":
-          return thenable.value;
-        case "rejected":
-          throw thenable.reason;
-      }
-  }
-  throw thenable;
-}
-function mapIntoArray(children, array, escapedPrefix, nameSoFar, callback) {
-  var type = typeof children;
-  if ("undefined" === type || "boolean" === type) children = null;
-  var invokeCallback = !1;
-  if (null === children) invokeCallback = !0;
-  else
-    switch (type) {
-      case "bigint":
-      case "string":
-      case "number":
-        invokeCallback = !0;
-        break;
-      case "object":
-        switch (children.$$typeof) {
-          case REACT_ELEMENT_TYPE:
-          case REACT_PORTAL_TYPE:
-            invokeCallback = !0;
-            break;
-          case REACT_LAZY_TYPE:
-            return (
-              (invokeCallback = children._init),
-              mapIntoArray(
-                invokeCallback(children._payload),
-                array,
-                escapedPrefix,
-                nameSoFar,
-                callback
-              )
-            );
-        }
+
+var stylesInDOM = [];
+function getIndexByIdentifier(identifier) {
+  var result = -1;
+  for (var i = 0; i < stylesInDOM.length; i++) {
+    if (stylesInDOM[i].identifier === identifier) {
+      result = i;
+      break;
     }
-  if (invokeCallback)
-    return (
-      (callback = callback(children)),
-      (invokeCallback =
-        "" === nameSoFar ? "." + getElementKey(children, 0) : nameSoFar),
-      isArrayImpl(callback)
-        ? ((escapedPrefix = ""),
-          null != invokeCallback &&
-            (escapedPrefix =
-              invokeCallback.replace(userProvidedKeyEscapeRegex, "$&/") + "/"),
-          mapIntoArray(callback, array, escapedPrefix, "", function (c) {
-            return c;
-          }))
-        : null != callback &&
-          (isValidElement(callback) &&
-            (callback = cloneAndReplaceKey(
-              callback,
-              escapedPrefix +
-                (null == callback.key ||
-                (children && children.key === callback.key)
-                  ? ""
-                  : ("" + callback.key).replace(
-                      userProvidedKeyEscapeRegex,
-                      "$&/"
-                    ) + "/") +
-                invokeCallback
-            )),
-          array.push(callback)),
-      1
-    );
-  invokeCallback = 0;
-  var nextNamePrefix = "" === nameSoFar ? "." : nameSoFar + ":";
-  if (isArrayImpl(children))
-    for (var i = 0; i < children.length; i++)
-      (nameSoFar = children[i]),
-        (type = nextNamePrefix + getElementKey(nameSoFar, i)),
-        (invokeCallback += mapIntoArray(
-          nameSoFar,
-          array,
-          escapedPrefix,
-          type,
-          callback
-        ));
-  else if (((i = getIteratorFn(children)), "function" === typeof i))
-    for (
-      children = i.call(children), i = 0;
-      !(nameSoFar = children.next()).done;
-
-    )
-      (nameSoFar = nameSoFar.value),
-        (type = nextNamePrefix + getElementKey(nameSoFar, i++)),
-        (invokeCallback += mapIntoArray(
-          nameSoFar,
-          array,
-          escapedPrefix,
-          type,
-          callback
-        ));
-  else if ("object" === type) {
-    if ("function" === typeof children.then)
-      return mapIntoArray(
-        resolveThenable(children),
-        array,
-        escapedPrefix,
-        nameSoFar,
-        callback
-      );
-    array = String(children);
-    throw Error(
-      "Objects are not valid as a React child (found: " +
-        ("[object Object]" === array
-          ? "object with keys {" + Object.keys(children).join(", ") + "}"
-          : array) +
-        "). If you meant to render a collection of children, use an array instead."
-    );
   }
-  return invokeCallback;
-}
-function mapChildren(children, func, context) {
-  if (null == children) return children;
-  var result = [],
-    count = 0;
-  mapIntoArray(children, result, "", "", function (child) {
-    return func.call(context, child, count++);
-  });
   return result;
 }
-function lazyInitializer(payload) {
-  if (-1 === payload._status) {
-    var ctor = payload._result;
-    ctor = ctor();
-    ctor.then(
-      function (moduleObject) {
-        if (0 === payload._status || -1 === payload._status)
-          (payload._status = 1), (payload._result = moduleObject);
-      },
-      function (error) {
-        if (0 === payload._status || -1 === payload._status)
-          (payload._status = 2), (payload._result = error);
-      }
-    );
-    -1 === payload._status && ((payload._status = 0), (payload._result = ctor));
+function modulesToDom(list, options) {
+  var idCountMap = {};
+  var identifiers = [];
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i];
+    var id = options.base ? item[0] + options.base : item[0];
+    var count = idCountMap[id] || 0;
+    var identifier = "".concat(id, " ").concat(count);
+    idCountMap[id] = count + 1;
+    var indexByIdentifier = getIndexByIdentifier(identifier);
+    var obj = {
+      css: item[1],
+      media: item[2],
+      sourceMap: item[3],
+      supports: item[4],
+      layer: item[5]
+    };
+    if (indexByIdentifier !== -1) {
+      stylesInDOM[indexByIdentifier].references++;
+      stylesInDOM[indexByIdentifier].updater(obj);
+    } else {
+      var updater = addElementStyle(obj, options);
+      options.byIndex = i;
+      stylesInDOM.splice(i, 0, {
+        identifier: identifier,
+        updater: updater,
+        references: 1
+      });
+    }
+    identifiers.push(identifier);
   }
-  if (1 === payload._status) return payload._result.default;
-  throw payload._result;
+  return identifiers;
 }
-var reportGlobalError =
-  "function" === typeof reportError
-    ? reportError
-    : function (error) {
-        if (
-          "object" === typeof window &&
-          "function" === typeof window.ErrorEvent
-        ) {
-          var event = new window.ErrorEvent("error", {
-            bubbles: !0,
-            cancelable: !0,
-            message:
-              "object" === typeof error &&
-              null !== error &&
-              "string" === typeof error.message
-                ? String(error.message)
-                : String(error),
-            error: error
-          });
-          if (!window.dispatchEvent(event)) return;
-        } else if (
-          "object" === typeof process &&
-          "function" === typeof process.emit
-        ) {
-          process.emit("uncaughtException", error);
-          return;
-        }
-        console.error(error);
-      };
-function noop() {}
-exports.Children = {
-  map: mapChildren,
-  forEach: function (children, forEachFunc, forEachContext) {
-    mapChildren(
-      children,
-      function () {
-        forEachFunc.apply(this, arguments);
-      },
-      forEachContext
-    );
-  },
-  count: function (children) {
-    var n = 0;
-    mapChildren(children, function () {
-      n++;
-    });
-    return n;
-  },
-  toArray: function (children) {
-    return (
-      mapChildren(children, function (child) {
-        return child;
-      }) || []
-    );
-  },
-  only: function (children) {
-    if (!isValidElement(children))
-      throw Error(
-        "React.Children.only expected to receive a single React element child."
-      );
-    return children;
-  }
-};
-exports.Component = Component;
-exports.Fragment = REACT_FRAGMENT_TYPE;
-exports.Profiler = REACT_PROFILER_TYPE;
-exports.PureComponent = PureComponent;
-exports.StrictMode = REACT_STRICT_MODE_TYPE;
-exports.Suspense = REACT_SUSPENSE_TYPE;
-exports.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE =
-  ReactSharedInternals;
-exports.act = function () {
-  throw Error("act(...) is not supported in production builds of React.");
-};
-exports.cache = function (fn) {
-  return function () {
-    return fn.apply(null, arguments);
+function addElementStyle(obj, options) {
+  var api = options.domAPI(options);
+  api.update(obj);
+  var updater = function updater(newObj) {
+    if (newObj) {
+      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap && newObj.supports === obj.supports && newObj.layer === obj.layer) {
+        return;
+      }
+      api.update(obj = newObj);
+    } else {
+      api.remove();
+    }
+  };
+  return updater;
+}
+module.exports = function (list, options) {
+  options = options || {};
+  list = list || [];
+  var lastIdentifiers = modulesToDom(list, options);
+  return function update(newList) {
+    newList = newList || [];
+    for (var i = 0; i < lastIdentifiers.length; i++) {
+      var identifier = lastIdentifiers[i];
+      var index = getIndexByIdentifier(identifier);
+      stylesInDOM[index].references--;
+    }
+    var newLastIdentifiers = modulesToDom(newList, options);
+    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
+      var _identifier = lastIdentifiers[_i];
+      var _index = getIndexByIdentifier(_identifier);
+      if (stylesInDOM[_index].references === 0) {
+        stylesInDOM[_index].updater();
+        stylesInDOM.splice(_index, 1);
+      }
+    }
+    lastIdentifiers = newLastIdentifiers;
   };
 };
-exports.cloneElement = function (element, config, children) {
-  if (null === element || void 0 === element)
-    throw Error(
-      "The argument must be a React element, but you passed " + element + "."
-    );
-  var props = assign({}, element.props),
-    key = element.key,
-    owner = void 0;
-  if (null != config)
-    for (propName in (void 0 !== config.ref && (owner = void 0),
-    void 0 !== config.key && (key = "" + config.key),
-    config))
-      !hasOwnProperty.call(config, propName) ||
-        "key" === propName ||
-        "__self" === propName ||
-        "__source" === propName ||
-        ("ref" === propName && void 0 === config.ref) ||
-        (props[propName] = config[propName]);
-  var propName = arguments.length - 2;
-  if (1 === propName) props.children = children;
-  else if (1 < propName) {
-    for (var childArray = Array(propName), i = 0; i < propName; i++)
-      childArray[i] = arguments[i + 2];
-    props.children = childArray;
-  }
-  return ReactElement(element.type, key, void 0, void 0, owner, props);
-};
-exports.createContext = function (defaultValue) {
-  defaultValue = {
-    $$typeof: REACT_CONTEXT_TYPE,
-    _currentValue: defaultValue,
-    _currentValue2: defaultValue,
-    _threadCount: 0,
-    Provider: null,
-    Consumer: null
-  };
-  defaultValue.Provider = defaultValue;
-  defaultValue.Consumer = {
-    $$typeof: REACT_CONSUMER_TYPE,
-    _context: defaultValue
-  };
-  return defaultValue;
-};
-exports.createElement = function (type, config, children) {
-  var propName,
-    props = {},
-    key = null;
-  if (null != config)
-    for (propName in (void 0 !== config.key && (key = "" + config.key), config))
-      hasOwnProperty.call(config, propName) &&
-        "key" !== propName &&
-        "__self" !== propName &&
-        "__source" !== propName &&
-        (props[propName] = config[propName]);
-  var childrenLength = arguments.length - 2;
-  if (1 === childrenLength) props.children = children;
-  else if (1 < childrenLength) {
-    for (var childArray = Array(childrenLength), i = 0; i < childrenLength; i++)
-      childArray[i] = arguments[i + 2];
-    props.children = childArray;
-  }
-  if (type && type.defaultProps)
-    for (propName in ((childrenLength = type.defaultProps), childrenLength))
-      void 0 === props[propName] &&
-        (props[propName] = childrenLength[propName]);
-  return ReactElement(type, key, void 0, void 0, null, props);
-};
-exports.createRef = function () {
-  return { current: null };
-};
-exports.forwardRef = function (render) {
-  return { $$typeof: REACT_FORWARD_REF_TYPE, render: render };
-};
-exports.isValidElement = isValidElement;
-exports.lazy = function (ctor) {
-  return {
-    $$typeof: REACT_LAZY_TYPE,
-    _payload: { _status: -1, _result: ctor },
-    _init: lazyInitializer
-  };
-};
-exports.memo = function (type, compare) {
-  return {
-    $$typeof: REACT_MEMO_TYPE,
-    type: type,
-    compare: void 0 === compare ? null : compare
-  };
-};
-exports.startTransition = function (scope) {
-  var prevTransition = ReactSharedInternals.T,
-    currentTransition = {};
-  ReactSharedInternals.T = currentTransition;
-  try {
-    var returnValue = scope(),
-      onStartTransitionFinish = ReactSharedInternals.S;
-    null !== onStartTransitionFinish &&
-      onStartTransitionFinish(currentTransition, returnValue);
-    "object" === typeof returnValue &&
-      null !== returnValue &&
-      "function" === typeof returnValue.then &&
-      returnValue.then(noop, reportGlobalError);
-  } catch (error) {
-    reportGlobalError(error);
-  } finally {
-    ReactSharedInternals.T = prevTransition;
-  }
-};
-exports.unstable_useCacheRefresh = function () {
-  return ReactSharedInternals.H.useCacheRefresh();
-};
-exports.use = function (usable) {
-  return ReactSharedInternals.H.use(usable);
-};
-exports.useActionState = function (action, initialState, permalink) {
-  return ReactSharedInternals.H.useActionState(action, initialState, permalink);
-};
-exports.useCallback = function (callback, deps) {
-  return ReactSharedInternals.H.useCallback(callback, deps);
-};
-exports.useContext = function (Context) {
-  return ReactSharedInternals.H.useContext(Context);
-};
-exports.useDebugValue = function () {};
-exports.useDeferredValue = function (value, initialValue) {
-  return ReactSharedInternals.H.useDeferredValue(value, initialValue);
-};
-exports.useEffect = function (create, deps) {
-  return ReactSharedInternals.H.useEffect(create, deps);
-};
-exports.useId = function () {
-  return ReactSharedInternals.H.useId();
-};
-exports.useImperativeHandle = function (ref, create, deps) {
-  return ReactSharedInternals.H.useImperativeHandle(ref, create, deps);
-};
-exports.useInsertionEffect = function (create, deps) {
-  return ReactSharedInternals.H.useInsertionEffect(create, deps);
-};
-exports.useLayoutEffect = function (create, deps) {
-  return ReactSharedInternals.H.useLayoutEffect(create, deps);
-};
-exports.useMemo = function (create, deps) {
-  return ReactSharedInternals.H.useMemo(create, deps);
-};
-exports.useOptimistic = function (passthrough, reducer) {
-  return ReactSharedInternals.H.useOptimistic(passthrough, reducer);
-};
-exports.useReducer = function (reducer, initialArg, init) {
-  return ReactSharedInternals.H.useReducer(reducer, initialArg, init);
-};
-exports.useRef = function (initialValue) {
-  return ReactSharedInternals.H.useRef(initialValue);
-};
-exports.useState = function (initialState) {
-  return ReactSharedInternals.H.useState(initialState);
-};
-exports.useSyncExternalStore = function (
-  subscribe,
-  getSnapshot,
-  getServerSnapshot
-) {
-  return ReactSharedInternals.H.useSyncExternalStore(
-    subscribe,
-    getSnapshot,
-    getServerSnapshot
-  );
-};
-exports.useTransition = function () {
-  return ReactSharedInternals.H.useTransition();
-};
-exports.version = "19.0.0";
 
+/***/ }),
+
+/***/ 659:
+/***/ ((module) => {
+
+
+
+var memo = {};
+
+/* istanbul ignore next  */
+function getTarget(target) {
+  if (typeof memo[target] === "undefined") {
+    var styleTarget = document.querySelector(target);
+
+    // Special case to return head of iframe instead of iframe itself
+    if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+      try {
+        // This will throw an exception if access to iframe is blocked
+        // due to cross-origin restrictions
+        styleTarget = styleTarget.contentDocument.head;
+      } catch (e) {
+        // istanbul ignore next
+        styleTarget = null;
+      }
+    }
+    memo[target] = styleTarget;
+  }
+  return memo[target];
+}
+
+/* istanbul ignore next  */
+function insertBySelector(insert, style) {
+  var target = getTarget(insert);
+  if (!target) {
+    throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
+  }
+  target.appendChild(style);
+}
+module.exports = insertBySelector;
 
 /***/ }),
 
 /***/ 540:
+/***/ ((module) => {
+
+
+
+/* istanbul ignore next  */
+function insertStyleElement(options) {
+  var element = document.createElement("style");
+  options.setAttributes(element, options.attributes);
+  options.insert(element, options.options);
+  return element;
+}
+module.exports = insertStyleElement;
+
+/***/ }),
+
+/***/ 56:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 
 
-if (true) {
-  module.exports = __webpack_require__(869);
-} else {}
-
+/* istanbul ignore next  */
+function setAttributesWithoutAttributes(styleElement) {
+  var nonce =  true ? __webpack_require__.nc : 0;
+  if (nonce) {
+    styleElement.setAttribute("nonce", nonce);
+  }
+}
+module.exports = setAttributesWithoutAttributes;
 
 /***/ }),
 
-/***/ 942:
-/***/ ((module, exports) => {
+/***/ 825:
+/***/ ((module) => {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	Copyright (c) 2018 Jed Watson.
-	Licensed under the MIT License (MIT), see
-	http://jedwatson.github.io/classnames
-*/
-/* global define */
 
-(function () {
-	'use strict';
 
-	var hasOwn = {}.hasOwnProperty;
+/* istanbul ignore next  */
+function apply(styleElement, options, obj) {
+  var css = "";
+  if (obj.supports) {
+    css += "@supports (".concat(obj.supports, ") {");
+  }
+  if (obj.media) {
+    css += "@media ".concat(obj.media, " {");
+  }
+  var needLayer = typeof obj.layer !== "undefined";
+  if (needLayer) {
+    css += "@layer".concat(obj.layer.length > 0 ? " ".concat(obj.layer) : "", " {");
+  }
+  css += obj.css;
+  if (needLayer) {
+    css += "}";
+  }
+  if (obj.media) {
+    css += "}";
+  }
+  if (obj.supports) {
+    css += "}";
+  }
+  var sourceMap = obj.sourceMap;
+  if (sourceMap && typeof btoa !== "undefined") {
+    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
+  }
 
-	function classNames () {
-		var classes = '';
+  // For old IE
+  /* istanbul ignore if  */
+  options.styleTagTransform(css, styleElement, options.options);
+}
+function removeStyleElement(styleElement) {
+  // istanbul ignore if
+  if (styleElement.parentNode === null) {
+    return false;
+  }
+  styleElement.parentNode.removeChild(styleElement);
+}
 
-		for (var i = 0; i < arguments.length; i++) {
-			var arg = arguments[i];
-			if (arg) {
-				classes = appendClass(classes, parseValue(arg));
-			}
-		}
+/* istanbul ignore next  */
+function domAPI(options) {
+  if (typeof document === "undefined") {
+    return {
+      update: function update() {},
+      remove: function remove() {}
+    };
+  }
+  var styleElement = options.insertStyleElement(options);
+  return {
+    update: function update(obj) {
+      apply(styleElement, options, obj);
+    },
+    remove: function remove() {
+      removeStyleElement(styleElement);
+    }
+  };
+}
+module.exports = domAPI;
 
-		return classes;
-	}
+/***/ }),
 
-	function parseValue (arg) {
-		if (typeof arg === 'string' || typeof arg === 'number') {
-			return arg;
-		}
+/***/ 113:
+/***/ ((module) => {
 
-		if (typeof arg !== 'object') {
-			return '';
-		}
 
-		if (Array.isArray(arg)) {
-			return classNames.apply(null, arg);
-		}
 
-		if (arg.toString !== Object.prototype.toString && !arg.toString.toString().includes('[native code]')) {
-			return arg.toString();
-		}
+/* istanbul ignore next  */
+function styleTagTransform(css, styleElement) {
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = css;
+  } else {
+    while (styleElement.firstChild) {
+      styleElement.removeChild(styleElement.firstChild);
+    }
+    styleElement.appendChild(document.createTextNode(css));
+  }
+}
+module.exports = styleTagTransform;
 
-		var classes = '';
+/***/ }),
 
-		for (var key in arg) {
-			if (hasOwn.call(arg, key) && arg[key]) {
-				classes = appendClass(classes, key);
-			}
-		}
+/***/ 649:
+/***/ ((module) => {
 
-		return classes;
-	}
-
-	function appendClass (value, newClass) {
-		if (!newClass) {
-			return value;
-		}
-	
-		if (value) {
-			return value + ' ' + newClass;
-		}
-	
-		return value + newClass;
-	}
-
-	if ( true && module.exports) {
-		classNames.default = classNames;
-		module.exports = classNames;
-	} else if (true) {
-		// register as 'classnames', consistent with npm package name
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
-			return classNames;
-		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	} else {}
-}());
-
+module.exports = __WEBPACK_EXTERNAL_MODULE_react__;
 
 /***/ })
 
@@ -1519,7 +1252,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /******/ 	}
 /******/ 	// Create a new module (and put it into the cache)
 /******/ 	var module = __webpack_module_cache__[moduleId] = {
-/******/ 		// no module.id needed
+/******/ 		id: moduleId,
 /******/ 		// no module.loaded needed
 /******/ 		exports: {}
 /******/ 	};
@@ -1532,6 +1265,18 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /******/ }
 /******/ 
 /************************************************************************/
+/******/ /* webpack/runtime/compat get default export */
+/******/ (() => {
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = (module) => {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			() => (module['default']) :
+/******/ 			() => (module);
+/******/ 		__webpack_require__.d(getter, { a: getter });
+/******/ 		return getter;
+/******/ 	};
+/******/ })();
+/******/ 
 /******/ /* webpack/runtime/define property getters */
 /******/ (() => {
 /******/ 	// define getter functions for harmony exports
@@ -1549,21 +1294,190 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /******/ 	__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ })();
 /******/ 
+/******/ /* webpack/runtime/nonce */
+/******/ (() => {
+/******/ 	__webpack_require__.nc = undefined;
+/******/ })();
+/******/ 
 /************************************************************************/
 var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  bL: () => (/* reexport */ src_NotificationContainer),
-  hm: () => (/* reexport */ src_NotificationManager),
-  $0: () => (/* reexport */ src_Notifications),
-  Ay: () => (/* binding */ src)
+  b: () => (/* reexport */ src_NotificationContainer),
+  h: () => (/* reexport */ src_NotificationManager)
 });
 
-// EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__(540);
-// EXTERNAL MODULE: ./node_modules/prop-types/index.js
-var prop_types = __webpack_require__(556);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js
+var injectStylesIntoStyleTag = __webpack_require__(72);
+var injectStylesIntoStyleTag_default = /*#__PURE__*/__webpack_require__.n(injectStylesIntoStyleTag);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/styleDomAPI.js
+var styleDomAPI = __webpack_require__(825);
+var styleDomAPI_default = /*#__PURE__*/__webpack_require__.n(styleDomAPI);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/insertBySelector.js
+var insertBySelector = __webpack_require__(659);
+var insertBySelector_default = /*#__PURE__*/__webpack_require__.n(insertBySelector);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js
+var setAttributesWithoutAttributes = __webpack_require__(56);
+var setAttributesWithoutAttributes_default = /*#__PURE__*/__webpack_require__.n(setAttributesWithoutAttributes);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/insertStyleElement.js
+var insertStyleElement = __webpack_require__(540);
+var insertStyleElement_default = /*#__PURE__*/__webpack_require__.n(insertStyleElement);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/styleTagTransform.js
+var styleTagTransform = __webpack_require__(113);
+var styleTagTransform_default = /*#__PURE__*/__webpack_require__.n(styleTagTransform);
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/notifications.css
+var notifications = __webpack_require__(411);
+;// ./src/notifications.css
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (styleTagTransform_default());
+options.setAttributes = (setAttributesWithoutAttributes_default());
+options.insert = insertBySelector_default().bind(null, "head");
+options.domAPI = (styleDomAPI_default());
+options.insertStyleElement = (insertStyleElement_default());
+
+var update = injectStylesIntoStyleTag_default()(notifications/* default */.A, options);
+
+
+
+
+       /* harmony default export */ const src_notifications = (notifications/* default */.A && notifications/* default */.A.locals ? notifications/* default */.A.locals : undefined);
+
+// EXTERNAL MODULE: external "react"
+var external_react_ = __webpack_require__(649);
+// EXTERNAL MODULE: ./node_modules/events/events.js
+var events = __webpack_require__(7);
+;// ./src/models/index.ts
+var NotificationType;
+(function (NotificationType) {
+    NotificationType["Info"] = "info";
+    NotificationType["Success"] = "success";
+    NotificationType["Warning"] = "warning";
+    NotificationType["Error"] = "error";
+})(NotificationType || (NotificationType = {}));
+
+;// ./src/NotificationManager.ts
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+
+var createUUID = function () {
+    var pattern = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx';
+    return pattern.replace(/[xy]/g, function (c) {
+        var r = (Math.random() * 16) | 0;
+        var v = c === 'x' ? r : ((r & 0x3) | 0x8);
+        return v.toString(16);
+    });
+};
+var NotificationManager = /** @class */ (function (_super) {
+    __extends(NotificationManager, _super);
+    function NotificationManager() {
+        var _this = _super.call(this) || this;
+        _this.listNotify = [];
+        return _this;
+    }
+    NotificationManager.prototype.create = function (notify) {
+        var defaultNotify = {
+            id: createUUID(),
+            type: NotificationType.Info,
+            timeOut: 5000,
+            nodeRef: external_react_["default"].createRef()
+        };
+        if (notify.priority) {
+            this.listNotify.unshift(Object.assign(defaultNotify, notify));
+        }
+        else {
+            this.listNotify.push(Object.assign(defaultNotify, notify));
+        }
+        this.emitChange();
+    };
+    NotificationManager.prototype.info = function (message, title, timeOut, onClick, priority) {
+        this.create({
+            type: NotificationType.Info,
+            message: message,
+            title: title,
+            timeOut: timeOut,
+            onClick: onClick,
+            priority: priority
+        });
+    };
+    NotificationManager.prototype.success = function (message, title, timeOut, onClick, priority) {
+        this.create({
+            type: NotificationType.Success,
+            message: message,
+            title: title,
+            timeOut: timeOut,
+            onClick: onClick,
+            priority: priority
+        });
+    };
+    NotificationManager.prototype.warning = function (message, title, timeOut, onClick, priority) {
+        this.create({
+            type: NotificationType.Warning,
+            message: message,
+            title: title,
+            timeOut: timeOut,
+            onClick: onClick,
+            priority: priority
+        });
+    };
+    NotificationManager.prototype.error = function (message, title, timeOut, onClick, priority) {
+        this.create({
+            type: NotificationType.Error,
+            message: message,
+            title: title,
+            timeOut: timeOut,
+            onClick: onClick,
+            priority: priority
+        });
+    };
+    NotificationManager.prototype.remove = function (notification) {
+        this.listNotify = this.listNotify.filter(function (n) { return notification.id !== n.id; });
+        this.emitChange();
+    };
+    NotificationManager.prototype.removeAll = function () {
+        this.listNotify.length = 0;
+        this.emitChange();
+    };
+    NotificationManager.prototype.emitChange = function () {
+        this.emit('change', this.listNotify);
+    };
+    NotificationManager.prototype.addChangeListener = function (callback) {
+        this.addListener('change', callback);
+    };
+    NotificationManager.prototype.removeChangeListener = function (callback) {
+        this.removeListener('change', callback);
+    };
+    return NotificationManager;
+}(events.EventEmitter));
+/* harmony default export */ const src_NotificationManager = (new NotificationManager());
+
 ;// ./node_modules/@babel/runtime/helpers/esm/extends.js
 function _extends() {
   return _extends = Object.assign ? Object.assign.bind() : function (n) {
@@ -1651,7 +1565,7 @@ var react_dom = __webpack_require__(961);
 });
 ;// ./node_modules/react-transition-group/esm/TransitionGroupContext.js
 
-/* harmony default export */ const TransitionGroupContext = (react.createContext(null));
+/* harmony default export */ const TransitionGroupContext = (external_react_["default"].createContext(null));
 ;// ./node_modules/react-transition-group/esm/utils/reflow.js
 var forceReflow = function forceReflow(node) {
   return node.scrollTop;
@@ -2062,14 +1976,14 @@ var Transition = /*#__PURE__*/function (_React$Component) {
     return (
       /*#__PURE__*/
       // allows for nested Transitions
-      react.createElement(TransitionGroupContext.Provider, {
+      external_react_["default"].createElement(TransitionGroupContext.Provider, {
         value: null
-      }, typeof children === 'function' ? children(status, childProps) : react.cloneElement(react.Children.only(children), childProps))
+      }, typeof children === 'function' ? children(status, childProps) : external_react_["default"].cloneElement(external_react_["default"].Children.only(children), childProps))
     );
   };
 
   return Transition;
-}(react.Component);
+}(external_react_["default"].Component);
 
 Transition.contextType = TransitionGroupContext;
 Transition.propTypes =  false ? 0 : {}; // Name the function so it is clearer in the documentation
@@ -2362,7 +2276,7 @@ var CSSTransition = /*#__PURE__*/function (_React$Component) {
         _ = _this$props.classNames,
         props = _objectWithoutPropertiesLoose(_this$props, ["classNames"]);
 
-    return /*#__PURE__*/react.createElement(esm_Transition, _extends({}, props, {
+    return /*#__PURE__*/external_react_["default"].createElement(esm_Transition, _extends({}, props, {
       onEnter: this.onEnter,
       onEntered: this.onEntered,
       onEntering: this.onEntering,
@@ -2373,7 +2287,7 @@ var CSSTransition = /*#__PURE__*/function (_React$Component) {
   };
 
   return CSSTransition;
-}(react.Component);
+}(external_react_["default"].Component);
 
 CSSTransition.defaultProps = {
   classNames: ''
@@ -2397,11 +2311,11 @@ function _assertThisInitialized(e) {
 
 function getChildMapping(children, mapFn) {
   var mapper = function mapper(child) {
-    return mapFn && (0,react.isValidElement)(child) ? mapFn(child) : child;
+    return mapFn && (0,external_react_.isValidElement)(child) ? mapFn(child) : child;
   };
 
   var result = Object.create(null);
-  if (children) react.Children.map(children, function (c) {
+  if (children) external_react_.Children.map(children, function (c) {
     return c;
   }).forEach(function (child) {
     // run the map function here instead so that the key is the computed one
@@ -2479,7 +2393,7 @@ function getProp(child, prop, props) {
 
 function getInitialChildMapping(props, onExited) {
   return getChildMapping(props.children, function (child) {
-    return (0,react.cloneElement)(child, {
+    return (0,external_react_.cloneElement)(child, {
       onExited: onExited.bind(null, child),
       in: true,
       appear: getProp(child, 'appear', props),
@@ -2493,15 +2407,15 @@ function getNextChildMapping(nextProps, prevChildMapping, onExited) {
   var children = mergeChildMappings(prevChildMapping, nextChildMapping);
   Object.keys(children).forEach(function (key) {
     var child = children[key];
-    if (!(0,react.isValidElement)(child)) return;
+    if (!(0,external_react_.isValidElement)(child)) return;
     var hasPrev = (key in prevChildMapping);
     var hasNext = (key in nextChildMapping);
     var prevChild = prevChildMapping[key];
-    var isLeaving = (0,react.isValidElement)(prevChild) && !prevChild.props.in; // item is new (entering)
+    var isLeaving = (0,external_react_.isValidElement)(prevChild) && !prevChild.props.in; // item is new (entering)
 
     if (hasNext && (!hasPrev || isLeaving)) {
       // console.log('entering', key)
-      children[key] = (0,react.cloneElement)(child, {
+      children[key] = (0,external_react_.cloneElement)(child, {
         onExited: onExited.bind(null, child),
         in: true,
         exit: getProp(child, 'exit', nextProps),
@@ -2510,14 +2424,14 @@ function getNextChildMapping(nextProps, prevChildMapping, onExited) {
     } else if (!hasNext && hasPrev && !isLeaving) {
       // item is old (exiting)
       // console.log('leaving', key)
-      children[key] = (0,react.cloneElement)(child, {
+      children[key] = (0,external_react_.cloneElement)(child, {
         in: false
       });
-    } else if (hasNext && hasPrev && (0,react.isValidElement)(prevChild)) {
+    } else if (hasNext && hasPrev && (0,external_react_.isValidElement)(prevChild)) {
       // item hasn't changed transition states
       // copy over the last transition props;
       // console.log('unchanged', key)
-      children[key] = (0,react.cloneElement)(child, {
+      children[key] = (0,external_react_.cloneElement)(child, {
         onExited: onExited.bind(null, child),
         in: prevChild.props.in,
         exit: getProp(child, 'exit', nextProps),
@@ -2644,435 +2558,96 @@ var TransitionGroup = /*#__PURE__*/function (_React$Component) {
     delete props.exit;
 
     if (Component === null) {
-      return /*#__PURE__*/react.createElement(TransitionGroupContext.Provider, {
+      return /*#__PURE__*/external_react_["default"].createElement(TransitionGroupContext.Provider, {
         value: contextValue
       }, children);
     }
 
-    return /*#__PURE__*/react.createElement(TransitionGroupContext.Provider, {
+    return /*#__PURE__*/external_react_["default"].createElement(TransitionGroupContext.Provider, {
       value: contextValue
-    }, /*#__PURE__*/react.createElement(Component, props, children));
+    }, /*#__PURE__*/external_react_["default"].createElement(Component, props, children));
   };
 
   return TransitionGroup;
-}(react.Component);
+}(external_react_["default"].Component);
 
 TransitionGroup.propTypes =  false ? 0 : {};
 TransitionGroup.defaultProps = defaultProps;
 /* harmony default export */ const esm_TransitionGroup = (TransitionGroup);
-// EXTERNAL MODULE: ./node_modules/classnames/index.js
-var classnames = __webpack_require__(942);
-;// ./src/Notification.js
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
-function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
-function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
-function _callSuper(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
-function _possibleConstructorReturn(t, e) { if (e && ("object" == _typeof(e) || "function" == typeof e)) return e; if (void 0 !== e) throw new TypeError("Derived constructors may only return object or undefined"); return Notification_assertThisInitialized(t); }
-function Notification_assertThisInitialized(e) { if (void 0 === e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); return e; }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
-function _getPrototypeOf(t) { return _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function (t) { return t.__proto__ || Object.getPrototypeOf(t); }, _getPrototypeOf(t); }
-function _inherits(t, e) { if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function"); t.prototype = Object.create(e && e.prototype, { constructor: { value: t, writable: !0, configurable: !0 } }), Object.defineProperty(t, "prototype", { writable: !1 }), e && Notification_setPrototypeOf(t, e); }
-function Notification_setPrototypeOf(t, e) { return Notification_setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (t, e) { return t.__proto__ = e, t; }, Notification_setPrototypeOf(t, e); }
-function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
-function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+;// ./src/Notification.tsx
 
-
-
-var Notification = /*#__PURE__*/function (_React$Component) {
-  function Notification() {
-    var _this;
-    _classCallCheck(this, Notification);
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-    _this = _callSuper(this, Notification, [].concat(args));
-    _defineProperty(_this, "componentDidMount", function () {
-      var timeOut = _this.props.timeOut;
-      if (timeOut !== 0) {
-        _this.timer = setTimeout(_this.requestHide, timeOut);
-      }
-    });
-    _defineProperty(_this, "componentWillUnmount", function () {
-      if (_this.timer) {
-        clearTimeout(_this.timer);
-      }
-    });
-    _defineProperty(_this, "handleClick", function () {
-      var onClick = _this.props.onClick;
-      if (onClick) {
+var Notification = (0,external_react_.forwardRef)(function (_a, nodeRef) {
+    var type = _a.type, title = _a.title, message = _a.message, _b = _a.timeOut, timeOut = _b === void 0 ? 5000 : _b, onClick = _a.onClick, onRequestHide = _a.onRequestHide;
+    var className = "notification notification-".concat(type);
+    (0,external_react_.useEffect)(function () {
+        var timer = timeOut !== 0 ? setTimeout(onRequestHide, timeOut) : null;
+        return function () {
+            if (timer) {
+                clearTimeout(timer);
+            }
+        };
+    }, []);
+    var handleClick = function () {
         onClick();
-      }
-      _this.requestHide();
-    });
-    _defineProperty(_this, "requestHide", function () {
-      var onRequestHide = _this.props.onRequestHide;
-      if (onRequestHide) {
         onRequestHide();
-      }
-    });
-    return _this;
-  }
-  _inherits(Notification, _React$Component);
-  return _createClass(Notification, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-        type = _this$props.type,
-        message = _this$props.message,
-        nodeRef = _this$props.nodeRef;
-      var title = this.props.title;
-      var className = classnames(['notification', "notification-".concat(type)]);
-      title = title ? /*#__PURE__*/react.createElement("h4", {
-        className: "title"
-      }, title) : null;
-      return /*#__PURE__*/react.createElement("div", {
-        className: className,
-        onClick: this.handleClick,
-        ref: nodeRef
-      }, /*#__PURE__*/react.createElement("div", {
-        className: "notification-message",
-        role: "alert"
-      }, title, /*#__PURE__*/react.createElement("div", {
-        className: "message"
-      }, message)));
-    }
-  }]);
-}(react.Component);
-_defineProperty(Notification, "propTypes", _defineProperty({
-  type: prop_types.oneOf(['info', 'success', 'warning', 'error']),
-  title: prop_types.node,
-  message: prop_types.node,
-  timeOut: prop_types.number,
-  nodeRef: prop_types.shape({
-    current: prop_types.instanceOf(Element)
-  }),
-  onClick: prop_types.func,
-  onRequestHide: prop_types.func
-}, "nodeRef", prop_types.shape({
-  current: prop_types.instanceOf(Element)
-})));
-_defineProperty(Notification, "defaultProps", _defineProperty({
-  type: 'info',
-  title: null,
-  message: null,
-  timeOut: 5000,
-  nodeRef: null,
-  onClick: function onClick() {},
-  onRequestHide: function onRequestHide() {}
-}, "nodeRef", null));
+    };
+    return (external_react_["default"].createElement("div", { className: className, onClick: handleClick, ref: nodeRef },
+        external_react_["default"].createElement("div", { className: "notification-message", role: "alert" },
+            external_react_["default"].createElement("h4", { className: "title" }, title),
+            external_react_["default"].createElement("div", { className: "message" }, message))));
+});
 /* harmony default export */ const src_Notification = (Notification);
-;// ./src/Notifications.js
-function Notifications_typeof(o) { "@babel/helpers - typeof"; return Notifications_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, Notifications_typeof(o); }
-function Notifications_classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
-function Notifications_defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, Notifications_toPropertyKey(o.key), o); } }
-function Notifications_createClass(e, r, t) { return r && Notifications_defineProperties(e.prototype, r), t && Notifications_defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
-function Notifications_callSuper(t, o, e) { return o = Notifications_getPrototypeOf(o), Notifications_possibleConstructorReturn(t, Notifications_isNativeReflectConstruct() ? Reflect.construct(o, e || [], Notifications_getPrototypeOf(t).constructor) : o.apply(t, e)); }
-function Notifications_possibleConstructorReturn(t, e) { if (e && ("object" == Notifications_typeof(e) || "function" == typeof e)) return e; if (void 0 !== e) throw new TypeError("Derived constructors may only return object or undefined"); return Notifications_assertThisInitialized(t); }
-function Notifications_assertThisInitialized(e) { if (void 0 === e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); return e; }
-function Notifications_isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (Notifications_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
-function Notifications_getPrototypeOf(t) { return Notifications_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function (t) { return t.__proto__ || Object.getPrototypeOf(t); }, Notifications_getPrototypeOf(t); }
-function Notifications_inherits(t, e) { if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function"); t.prototype = Object.create(e && e.prototype, { constructor: { value: t, writable: !0, configurable: !0 } }), Object.defineProperty(t, "prototype", { writable: !1 }), e && Notifications_setPrototypeOf(t, e); }
-function Notifications_setPrototypeOf(t, e) { return Notifications_setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (t, e) { return t.__proto__ = e, t; }, Notifications_setPrototypeOf(t, e); }
-function Notifications_defineProperty(e, r, t) { return (r = Notifications_toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
-function Notifications_toPropertyKey(t) { var i = Notifications_toPrimitive(t, "string"); return "symbol" == Notifications_typeof(i) ? i : i + ""; }
-function Notifications_toPrimitive(t, r) { if ("object" != Notifications_typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != Notifications_typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+;// ./src/Notifications.tsx
 
 
 
-
-
-var Notifications = /*#__PURE__*/function (_React$Component) {
-  function Notifications() {
-    var _this;
-    Notifications_classCallCheck(this, Notifications);
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-    _this = Notifications_callSuper(this, Notifications, [].concat(args));
-    Notifications_defineProperty(_this, "handleRequestHide", function (notification) {
-      return function () {
-        var onRequestHide = _this.props.onRequestHide;
-        if (onRequestHide) {
-          onRequestHide(notification);
-        }
-      };
-    });
-    return _this;
-  }
-  Notifications_inherits(Notifications, _React$Component);
-  return Notifications_createClass(Notifications, [{
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-      var _this$props = this.props,
-        notifications = _this$props.notifications,
-        enterTimeout = _this$props.enterTimeout,
-        leaveTimeout = _this$props.leaveTimeout;
-      var className = classnames('notification-container', {
-        'notification-container-empty': notifications.length === 0
-      });
-      var items = notifications.map(function (notification) {
+var Notifications = function (_a) {
+    var notifications = _a.notifications, onRequestHide = _a.onRequestHide, enterTimeout = _a.enterTimeout, leaveTimeout = _a.leaveTimeout;
+    var className = "notification-container ".concat(notifications.length === 0 ? 'notification-container-empty' : '');
+    var handleRequestHide = function (notification) { return function () {
+        onRequestHide(notification);
+    }; };
+    var items = notifications.map(function (notification) {
+        var _a, _b, _c;
         var key = notification.id || new Date().getTime();
-        return /*#__PURE__*/react.createElement(esm_CSSTransition, {
-          key: key,
-          classNames: "notification",
-          timeout: {
-            enter: enterTimeout,
-            exit: leaveTimeout
-          },
-          nodeRef: notification.nodeRef
-        }, /*#__PURE__*/react.createElement(src_Notification, Notifications_defineProperty({
-          type: notification.type,
-          title: notification.title,
-          message: notification.message,
-          timeOut: notification.timeOut,
-          nodeRef: notification.nodeRef,
-          onClick: notification.onClick,
-          onRequestHide: _this2.handleRequestHide(notification)
-        }, "nodeRef", notification.nodeRef)));
-      });
-      return /*#__PURE__*/react.createElement("div", {
-        className: className
-      }, /*#__PURE__*/react.createElement(esm_TransitionGroup, null, items));
-    }
-  }]);
-}(react.Component);
-Notifications_defineProperty(Notifications, "propTypes", {
-  notifications: prop_types.array,
-  onRequestHide: prop_types.func,
-  enterTimeout: prop_types.number,
-  leaveTimeout: prop_types.number
-});
-Notifications_defineProperty(Notifications, "defaultProps", {
-  notifications: [],
-  onRequestHide: function onRequestHide() {},
-  enterTimeout: 400,
-  leaveTimeout: 400
-});
+        return (external_react_["default"].createElement(esm_CSSTransition, { key: key, classNames: "notification", timeout: { enter: enterTimeout, exit: leaveTimeout }, nodeRef: notification.nodeRef },
+            external_react_["default"].createElement(src_Notification, { type: notification.type, title: (_a = notification.title) !== null && _a !== void 0 ? _a : "", message: (_b = notification.message) !== null && _b !== void 0 ? _b : "", timeOut: notification.timeOut, ref: notification.nodeRef, onClick: (_c = notification.onClick) !== null && _c !== void 0 ? _c : (function () { }), onRequestHide: handleRequestHide(notification) })));
+    });
+    return (external_react_["default"].createElement("div", { className: className },
+        external_react_["default"].createElement(esm_TransitionGroup, null, items)));
+};
 /* harmony default export */ const src_Notifications = (Notifications);
-// EXTERNAL MODULE: ./node_modules/events/events.js
-var events = __webpack_require__(7);
-;// ./src/NotificationManager.js
-function NotificationManager_typeof(o) { "@babel/helpers - typeof"; return NotificationManager_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, NotificationManager_typeof(o); }
-function NotificationManager_classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
-function NotificationManager_defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, NotificationManager_toPropertyKey(o.key), o); } }
-function NotificationManager_createClass(e, r, t) { return r && NotificationManager_defineProperties(e.prototype, r), t && NotificationManager_defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
-function NotificationManager_toPropertyKey(t) { var i = NotificationManager_toPrimitive(t, "string"); return "symbol" == NotificationManager_typeof(i) ? i : i + ""; }
-function NotificationManager_toPrimitive(t, r) { if ("object" != NotificationManager_typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != NotificationManager_typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-function NotificationManager_callSuper(t, o, e) { return o = NotificationManager_getPrototypeOf(o), NotificationManager_possibleConstructorReturn(t, NotificationManager_isNativeReflectConstruct() ? Reflect.construct(o, e || [], NotificationManager_getPrototypeOf(t).constructor) : o.apply(t, e)); }
-function NotificationManager_possibleConstructorReturn(t, e) { if (e && ("object" == NotificationManager_typeof(e) || "function" == typeof e)) return e; if (void 0 !== e) throw new TypeError("Derived constructors may only return object or undefined"); return NotificationManager_assertThisInitialized(t); }
-function NotificationManager_assertThisInitialized(e) { if (void 0 === e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); return e; }
-function NotificationManager_isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (NotificationManager_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
-function NotificationManager_getPrototypeOf(t) { return NotificationManager_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function (t) { return t.__proto__ || Object.getPrototypeOf(t); }, NotificationManager_getPrototypeOf(t); }
-function NotificationManager_inherits(t, e) { if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function"); t.prototype = Object.create(e && e.prototype, { constructor: { value: t, writable: !0, configurable: !0 } }), Object.defineProperty(t, "prototype", { writable: !1 }), e && NotificationManager_setPrototypeOf(t, e); }
-function NotificationManager_setPrototypeOf(t, e) { return NotificationManager_setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (t, e) { return t.__proto__ = e, t; }, NotificationManager_setPrototypeOf(t, e); }
+
+;// ./src/NotificationContainer.tsx
 
 
-var createUUID = function createUUID() {
-  var pattern = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx';
-  return pattern.replace(/[xy]/g, function (c) {
-    var r = Math.random() * 16 | 0;
-    var v = c === 'x' ? r : r & 0x3 | 0x8;
-    return v.toString(16);
-  });
+
+var NotificationContainer = function (_a) {
+    var _b = _a.enterTimeout, enterTimeout = _b === void 0 ? 400 : _b, _c = _a.leaveTimeout, leaveTimeout = _c === void 0 ? 400 : _c;
+    var _d = (0,external_react_.useState)([]), notifications = _d[0], setNotifications = _d[1];
+    (0,external_react_.useEffect)(function () {
+        src_NotificationManager.addChangeListener(handleStoreChange);
+        return function () {
+            src_NotificationManager.removeChangeListener(handleStoreChange);
+        };
+    }, []);
+    var handleStoreChange = function (notifications) {
+        setNotifications(notifications);
+    };
+    var handleRequestHide = function (notification) {
+        src_NotificationManager.remove(notification);
+    };
+    return (external_react_["default"].createElement(src_Notifications, { enterTimeout: enterTimeout, leaveTimeout: leaveTimeout, notifications: notifications, onRequestHide: handleRequestHide }));
 };
-var Constants = {
-  CHANGE: 'change',
-  INFO: 'info',
-  SUCCESS: 'success',
-  WARNING: 'warning',
-  ERROR: 'error'
-};
-var NotificationManager = /*#__PURE__*/function (_EventEmitter) {
-  function NotificationManager() {
-    var _this;
-    NotificationManager_classCallCheck(this, NotificationManager);
-    _this = NotificationManager_callSuper(this, NotificationManager);
-    _this.listNotify = [];
-    return _this;
-  }
-  NotificationManager_inherits(NotificationManager, _EventEmitter);
-  return NotificationManager_createClass(NotificationManager, [{
-    key: "create",
-    value: function create(notify) {
-      var defaultNotify = {
-        id: createUUID(),
-        type: 'info',
-        title: null,
-        message: null,
-        timeOut: 5000,
-        nodeRef: /*#__PURE__*/react.createRef()
-      };
-      if (notify.priority) {
-        this.listNotify.unshift(Object.assign(defaultNotify, notify));
-      } else {
-        this.listNotify.push(Object.assign(defaultNotify, notify));
-      }
-      this.emitChange();
-    }
-  }, {
-    key: "info",
-    value: function info(message, title, timeOut, onClick, priority) {
-      this.create({
-        type: Constants.INFO,
-        message: message,
-        title: title,
-        timeOut: timeOut,
-        onClick: onClick,
-        priority: priority
-      });
-    }
-  }, {
-    key: "success",
-    value: function success(message, title, timeOut, onClick, priority) {
-      this.create({
-        type: Constants.SUCCESS,
-        message: message,
-        title: title,
-        timeOut: timeOut,
-        onClick: onClick,
-        priority: priority
-      });
-    }
-  }, {
-    key: "warning",
-    value: function warning(message, title, timeOut, onClick, priority) {
-      this.create({
-        type: Constants.WARNING,
-        message: message,
-        title: title,
-        timeOut: timeOut,
-        onClick: onClick,
-        priority: priority
-      });
-    }
-  }, {
-    key: "error",
-    value: function error(message, title, timeOut, onClick, priority) {
-      this.create({
-        type: Constants.ERROR,
-        message: message,
-        title: title,
-        timeOut: timeOut,
-        onClick: onClick,
-        priority: priority
-      });
-    }
-  }, {
-    key: "remove",
-    value: function remove(notification) {
-      this.listNotify = this.listNotify.filter(function (n) {
-        return notification.id !== n.id;
-      });
-      this.emitChange();
-    }
-  }, {
-    key: "removeAll",
-    value: function removeAll() {
-      this.listNotify.length = 0;
-      this.emitChange();
-    }
-  }, {
-    key: "emitChange",
-    value: function emitChange() {
-      this.emit(Constants.CHANGE, this.listNotify);
-    }
-  }, {
-    key: "addChangeListener",
-    value: function addChangeListener(callback) {
-      this.addListener(Constants.CHANGE, callback);
-    }
-  }, {
-    key: "removeChangeListener",
-    value: function removeChangeListener(callback) {
-      this.removeListener(Constants.CHANGE, callback);
-    }
-  }]);
-}(events.EventEmitter);
-/* harmony default export */ const src_NotificationManager = (new NotificationManager());
-;// ./src/NotificationContainer.js
-function NotificationContainer_typeof(o) { "@babel/helpers - typeof"; return NotificationContainer_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, NotificationContainer_typeof(o); }
-function NotificationContainer_classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
-function NotificationContainer_defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, NotificationContainer_toPropertyKey(o.key), o); } }
-function NotificationContainer_createClass(e, r, t) { return r && NotificationContainer_defineProperties(e.prototype, r), t && NotificationContainer_defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
-function NotificationContainer_callSuper(t, o, e) { return o = NotificationContainer_getPrototypeOf(o), NotificationContainer_possibleConstructorReturn(t, NotificationContainer_isNativeReflectConstruct() ? Reflect.construct(o, e || [], NotificationContainer_getPrototypeOf(t).constructor) : o.apply(t, e)); }
-function NotificationContainer_possibleConstructorReturn(t, e) { if (e && ("object" == NotificationContainer_typeof(e) || "function" == typeof e)) return e; if (void 0 !== e) throw new TypeError("Derived constructors may only return object or undefined"); return NotificationContainer_assertThisInitialized(t); }
-function NotificationContainer_assertThisInitialized(e) { if (void 0 === e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); return e; }
-function NotificationContainer_isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (NotificationContainer_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
-function NotificationContainer_getPrototypeOf(t) { return NotificationContainer_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function (t) { return t.__proto__ || Object.getPrototypeOf(t); }, NotificationContainer_getPrototypeOf(t); }
-function NotificationContainer_inherits(t, e) { if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function"); t.prototype = Object.create(e && e.prototype, { constructor: { value: t, writable: !0, configurable: !0 } }), Object.defineProperty(t, "prototype", { writable: !1 }), e && NotificationContainer_setPrototypeOf(t, e); }
-function NotificationContainer_setPrototypeOf(t, e) { return NotificationContainer_setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (t, e) { return t.__proto__ = e, t; }, NotificationContainer_setPrototypeOf(t, e); }
-function NotificationContainer_defineProperty(e, r, t) { return (r = NotificationContainer_toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
-function NotificationContainer_toPropertyKey(t) { var i = NotificationContainer_toPrimitive(t, "string"); return "symbol" == NotificationContainer_typeof(i) ? i : i + ""; }
-function NotificationContainer_toPrimitive(t, r) { if ("object" != NotificationContainer_typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != NotificationContainer_typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-
-
-
-
-var NotificationContainer = /*#__PURE__*/function (_React$Component) {
-  function NotificationContainer() {
-    var _this;
-    NotificationContainer_classCallCheck(this, NotificationContainer);
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-    _this = NotificationContainer_callSuper(this, NotificationContainer, [].concat(args));
-    NotificationContainer_defineProperty(_this, "state", {
-      notifications: []
-    });
-    NotificationContainer_defineProperty(_this, "componentDidMount", function () {
-      src_NotificationManager.addChangeListener(_this.handleStoreChange);
-    });
-    NotificationContainer_defineProperty(_this, "componentWillUnmount", function () {
-      src_NotificationManager.removeChangeListener(_this.handleStoreChange);
-    });
-    NotificationContainer_defineProperty(_this, "handleStoreChange", function (notifications) {
-      _this.setState({
-        notifications: notifications
-      });
-    });
-    NotificationContainer_defineProperty(_this, "handleRequestHide", function (notification) {
-      src_NotificationManager.remove(notification);
-    });
-    return _this;
-  }
-  NotificationContainer_inherits(NotificationContainer, _React$Component);
-  return NotificationContainer_createClass(NotificationContainer, [{
-    key: "render",
-    value: function render() {
-      var notifications = this.state.notifications;
-      var _this$props = this.props,
-        enterTimeout = _this$props.enterTimeout,
-        leaveTimeout = _this$props.leaveTimeout;
-      return /*#__PURE__*/react.createElement(src_Notifications, {
-        enterTimeout: enterTimeout,
-        leaveTimeout: leaveTimeout,
-        notifications: notifications,
-        onRequestHide: this.handleRequestHide
-      });
-    }
-  }]);
-}(react.Component);
-NotificationContainer_defineProperty(NotificationContainer, "propTypes", {
-  enterTimeout: prop_types.number,
-  leaveTimeout: prop_types.number
-});
-NotificationContainer_defineProperty(NotificationContainer, "defaultProps", {
-  enterTimeout: 400,
-  leaveTimeout: 400
-});
 /* harmony default export */ const src_NotificationContainer = (NotificationContainer);
-;// ./src/index.js
+
+;// ./src/index.ts
 
 
 
 
 
-/* harmony default export */ const src = (src_Notifications);
-var __webpack_exports__NotificationContainer = __webpack_exports__.bL;
-var __webpack_exports__NotificationManager = __webpack_exports__.hm;
-var __webpack_exports__Notifications = __webpack_exports__.$0;
-var __webpack_exports__default = __webpack_exports__.Ay;
-export { __webpack_exports__NotificationContainer as NotificationContainer, __webpack_exports__NotificationManager as NotificationManager, __webpack_exports__Notifications as Notifications, __webpack_exports__default as default };
+var __webpack_exports__NotificationContainer = __webpack_exports__.b;
+var __webpack_exports__NotificationManager = __webpack_exports__.h;
+export { __webpack_exports__NotificationContainer as NotificationContainer, __webpack_exports__NotificationManager as NotificationManager };

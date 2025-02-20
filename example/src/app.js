@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import App from './components/App.js';
 
 import 'bootstrap/dist/css/bootstrap.css';
-import '../../src/notifications.scss';
+//import '../../src/notifications.scss';
 import './assets/styles/app.scss';
 
 const run = () => {
